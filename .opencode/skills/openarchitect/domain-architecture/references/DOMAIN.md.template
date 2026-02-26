@@ -1,0 +1,42 @@
+﻿# DOMAIN
+
+Domain architecture repo entrypoint. Owns domain design baselines and produces a job catalog for developer routing.
+
+## Expected Layout
+
+```text
+DOMAIN.md                                          <- you are here
+AGENTS.md                                          <- repo-specific agent instructions
+ROADMAP.md                                         <- (optional) DA-owned developer-facing plan
+implementation-catalog.json                                <- job catalog (WORK_ITEM_ID / API_ID routing)
+.openarchitect/
+`-- cascade-state.yml                              <- (optional) governance gates + pinned refs
+architecture/
+`-- domains/
+    `-- <domain_id>/
+        |-- domain-design.md                       <- (optional) narrative design
+        |-- domain-design.yml                      <- (optional) structured design
+        |-- component-specs.yml                    <- refined component specs
+        `-- interface-contracts.yml                <- (optional) domain-level interfaces
+inputs/
+|-- solution/
+|   `-- <solution_key>/<snapshot_id>/
+|       |-- source.yml                             <- upstream provenance
+|       `-- artifacts/                             <- delivered artifacts
+`-- enterprise/
+    `-- <enterprise_key>/<snapshot_id>/...
+```
+
+## Routing
+
+`WORK_ITEM_ID` (or `API_ID`) -> `implementation-catalog.json` -> implementation target
+
+## Upstream Inputs
+
+- Snapshots under `inputs/` are immutable once merged; new upstream change = new snapshot.
+- `source.yml` identifies upstream repo URL + commit/tag + captured_at + reason.
+
+## Policy
+
+- Treat selector inputs as authoritative (`ENGAGEMENT_ID`, `WORK_ITEM_ID`).
+- Fail-closed on inactive status by default.

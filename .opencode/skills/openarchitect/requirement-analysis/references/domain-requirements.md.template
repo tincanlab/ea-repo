@@ -1,0 +1,22 @@
+# Domain Requirements (Narrative)
+
+Domain: `<domain_key>`
+
+This file is the domain-local narrative companion to the structured domain requirements.
+Treat `architecture/domains/<domain_key>/requirements.yml` as the canonical, traceable source.
+
+## Context
+
+- Parent solution requirements: `architecture/requirements/requirements.yml`
+- Domain roadmap: `ROADMAP.md`
+- Upstream evidence snapshots: `inputs/`
+
+## Domain Requirements Summary
+
+- `<bullet>`
+- `<bullet>`
+
+## Open Questions (If Any)
+
+- `<question>`
+

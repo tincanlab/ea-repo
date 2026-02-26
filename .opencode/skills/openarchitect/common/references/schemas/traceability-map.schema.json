@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/traceability-map.schema.json",
+  "title": "OpenArchitect Traceability Map Artifact",
+  "type": "object",
+  "required": ["components"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "components": {
+      "type": "object",
+      "patternProperties": {
+        "^comp-[a-z0-9][a-z0-9-]*$": {
+          "type": "object",
+          "required": ["design_paths", "code_paths", "interface_ids"],
+          "properties": {
+            "design_paths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "code_paths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "interface_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^ifc-[a-z0-9][a-z0-9-]*$"
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

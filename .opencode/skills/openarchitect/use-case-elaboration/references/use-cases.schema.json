@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenArchitect Use Cases",
+  "type": "object",
+  "required": ["version", "use_cases", "open_questions"],
+  "properties": {
+    "version": { "type": "string" },
+    "source": {
+      "type": "object",
+      "properties": {
+        "requirements_path": { "type": "string" },
+        "workspace_id": { "type": "string" },
+        "cascade_readiness": {
+          "type": "string",
+          "enum": ["ready_for_advancement_review", "not_ready_for_advancement"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "governance_signal": {
+      "$ref": "../../common/references/schemas/governance-signal.schema.json"
+    },
+    "use_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "linked_requirements", "actors", "main_flow", "acceptance_criteria"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^uc-[a-z0-9-]+$" },
+          "status": {
+            "type": "string",
+            "enum": ["active", "deprecated", "superseded"]
+          },
+          "revision": { "type": "integer", "minimum": 1 },
+          "supersedes": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^uc-[a-z0-9-]+$" }
+          },
+          "superseded_by": { "type": "string", "pattern": "^uc-[a-z0-9-]+$" },
+          "change_reason": { "type": "string" },
+          "name": { "type": "string" },
+          "summary": { "type": "string" },
+          "linked_requirements": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^req-[a-z0-9-]+$" }
+          },
+          "actors": { "type": "array", "items": { "type": "string" } },
+          "trigger": { "type": "string" },
+          "preconditions": { "type": "array", "items": { "type": "string" } },
+          "main_flow": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["step", "action"],
+              "properties": {
+                "step": { "type": "integer" },
+                "action": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          },
+          "alternate_flows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "condition": { "type": "string" },
+                "steps": { "type": "array", "items": { "type": "string" } }
+              },
+              "additionalProperties": true
+            }
+          },
+          "error_flows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "condition": { "type": "string" },
+                "handling": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          },
+          "inputs": { "type": "array", "items": { "type": "string" } },
+          "outputs": { "type": "array", "items": { "type": "string" } },
+          "acceptance_criteria": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "question", "status"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^q-[0-9]{3}$" },
+          "question": { "type": "string" },
+          "status": { "type": "string", "enum": ["open", "answered"] },
+          "answer": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

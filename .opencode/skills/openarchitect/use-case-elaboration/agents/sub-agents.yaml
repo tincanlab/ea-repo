@@ -1,0 +1,27 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route use-case elaboration workflow from requirements to testable scenario package.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: actor_scope_modeling
+    prompt: agents/prompts/actor_scope_modeling.md
+    capabilities:
+      - Identify actors, goals, triggers, and scope boundaries per use case.
+  - id: flow_elaboration
+    prompt: agents/prompts/flow_elaboration.md
+    capabilities:
+      - Detail main, alternate, and error flows with explicit handoffs.
+  - id: acceptance_mapping
+    prompt: agents/prompts/acceptance_mapping.md
+    capabilities:
+      - Map each use case to acceptance criteria and verifiable outcomes.
+  - id: journey_synthesis
+    prompt: agents/prompts/journey_synthesis.md
+    capabilities:
+      - Synthesize end-to-end journeys across use cases and components.
+  - id: use_case_validation
+    prompt: agents/prompts/use_case_validation.md
+    capabilities:
+      - Validate traceability, completeness, and non-contradiction.

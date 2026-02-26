@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenArchitect Requirements Enrichment",
+  "type": "object",
+  "required": ["version", "mappings", "gaps", "evidence"],
+  "properties": {
+    "version": { "type": "string" },
+    "source": {
+      "type": "object",
+      "properties": {
+        "requirements_path": { "type": "string" },
+        "workspace_id": { "type": "string" },
+        "run_mode": { "type": "string", "enum": ["manual", "task_worker"] }
+      },
+      "additionalProperties": true
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["requirement_id", "requirement_text"],
+        "properties": {
+          "requirement_id": { "type": "string", "pattern": "^req-[a-z0-9-]+$" },
+          "requirement_text": { "type": "string" },
+          "etom_processes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "process_id": { "type": "string" },
+                "name": { "type": "string" },
+                "domain": { "type": "string" },
+                "vertical_group": { "type": "string" },
+                "relation_to_anchor": {
+                  "type": "string",
+                  "enum": ["anchor", "parent", "child", "sibling"]
+                },
+                "anchor_process_id": { "type": "string" },
+                "confidence": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          },
+          "oda_components": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "component_id": { "type": "string" },
+                "name": { "type": "string" },
+                "functional_block": { "type": "string" },
+                "confidence": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          },
+          "functional_functions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "function_id": { "type": "string" },
+                "name": { "type": "string" },
+                "source_component_id": { "type": "string" },
+                "source_process_id": { "type": "string" },
+                "confidence": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          },
+          "sid_entities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "entity_name": { "type": "string" },
+                "abe": { "type": "string" },
+                "confidence": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          },
+          "open_api_candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "api_name": { "type": "string" },
+                "api_id": { "type": "string" },
+                "resource": { "type": "string" },
+                "operation": { "type": "string" },
+                "method": { "type": "string" },
+                "path": { "type": "string" },
+                "version": { "type": "string" },
+                "confidence": { "type": "string" }
+              },
+              "additionalProperties": true
+            }
+          },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["issue"],
+        "properties": {
+          "requirement_id": { "type": "string" },
+          "issue": { "type": "string" },
+          "action": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "openapi_mapping_mode": {
+          "type": "string",
+          "enum": ["disabled", "enabled"]
+        },
+        "verification": {
+          "type": "object",
+          "properties": {
+            "hierarchy_expected": { "type": "boolean" },
+            "hierarchy_used": { "type": "boolean" },
+            "reason_if_skipped": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "tool_calls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tool": { "type": "string" },
+              "query": { "type": "string" },
+              "top_k": { "type": "integer" }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

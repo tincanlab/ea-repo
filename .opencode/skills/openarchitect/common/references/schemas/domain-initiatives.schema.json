@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/domain-initiatives.schema.json",
+  "title": "SA Domain Initiatives Catalog",
+  "description": "Selector catalog for routing domain architect containers from the SA repo.",
+  "type": "object",
+  "required": [
+    "domains"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "domain_id",
+          "domain_repo_url",
+          "status"
+        ],
+        "properties": {
+          "domain_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "domain_repo_url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tmfc_component_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "approved",
+              "ready",
+              "in_progress",
+              "planned",
+              "paused",
+              "completed",
+              "cancelled",
+              "archived"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

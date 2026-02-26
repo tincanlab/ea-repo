@@ -1,0 +1,51 @@
+# EA portfolio source artifact (Git-first, no DB required)
+# Keep this file in EA repo at: architecture/portfolio/initiative-pipeline.yml
+# PM/business/IT maintain this as the full initiative pipeline.
+# Generate selector manifest with:
+#   python <skills_root>/enterprise-architecture/scripts/generate_initiatives_selector.py \
+#     --pipeline architecture/portfolio/initiative-pipeline.yml \
+#     --out architecture/portfolio/initiatives.yml
+# Publication gate:
+# - If routing.publish_to_selector=true, solution_repo_url must be set.
+# - If solution_repo_url is missing, keep publish_to_selector=false until repo-creation completes.
+
+version: "1.0"
+portfolio_cycle: "2026-Q3"
+initiatives:
+  - initiative_id: init-bss-modernization
+    name: BSS Modernization
+    stage: approved_for_delivery
+    description: "Modernize legacy BSS stack and retire fragmented point solutions."
+    objectives:
+      - "Reduce order-to-activate lead time by 30%."
+      - "Consolidate customer/product/order APIs behind TMF-aligned contracts."
+      - "Lower run cost by decommissioning duplicate legacy platforms."
+    business_case_id: bc-2026-014
+    business_sponsor: vp-digital
+    pm_owner: pm-team-a
+    it_owner: sa-team-a
+    t_shirt_size: l
+    roi_band: high
+    solution_repo_url: https://github.com/<github-org>/<solution-repo>
+    routing:
+      publish_to_selector: true
+      selector_status: active
+    metadata:
+      target_release: "2026-Q3"
+      review_board: enterprise-portfolio-board
+  - initiative_id: init-customer-360
+    name: Customer 360
+    stage: business_case
+    description: "Create a unified customer profile and interaction view across channels."
+    objectives:
+      - "Improve first-contact resolution with a single cross-channel customer view."
+      - "Enable targeted campaigns with governed consent-aware segmentation."
+    business_case_id: bc-2026-021
+    business_sponsor: cmo
+    pm_owner: pm-team-b
+    it_owner: sa-team-b
+    t_shirt_size: m
+    roi_band: medium
+    routing:
+      publish_to_selector: false
+      selector_status: planned

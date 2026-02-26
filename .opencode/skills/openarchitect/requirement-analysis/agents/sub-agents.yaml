@@ -1,0 +1,132 @@
+orchestrator:
+  id: standard_requirements_orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route requirement workflow by lifecycle step.
+    - Enforce one-specialist-hop-per-turn loop prevention.
+    - Require explicit user confirmation before enrichment handoff.
+    - Route to report_generation as the default terminal step.
+  tool_discovery:
+    mode: discovery_first
+    required_capabilities:
+      - workflow_status_read
+    preferred_tool_aliases:
+      workflow_status_read:
+        - get_requirement_workflow_status
+  routes:
+    initial_analysis: requirement_expansion
+    clarification: clarification
+    final_processing: confirmation_gate
+    enrichment_completed: report_generation
+    baseline_finalized_no_enrichment: report_generation
+    report_completed: done
+specialists:
+  - id: requirement_expansion
+    prompt: agents/prompts/requirement_expansion.md
+    capabilities:
+      - Expand intake into structured requirements with stable IDs.
+      - Offer post-expansion depth checkpoint by focus area before clarification continues.
+      - Persist and refine baseline after clarification.
+      - Keep categories and acceptance criteria explicit.
+    tool_discovery:
+      mode: discovery_first
+      required_capabilities:
+        - workflow_status_read
+        - expanded_requirements_write
+      optional_capabilities:
+        - clarification_questions_write
+        - clarification_answers_apply
+      preferred_tool_aliases:
+        workflow_status_read:
+          - get_requirement_workflow_status
+        expanded_requirements_write:
+          - store_expanded_requirements
+        clarification_questions_write:
+          - store_clarification_questions
+        clarification_answers_apply:
+          - process_clarification_answers_batch
+  - id: clarification
+    prompt: agents/prompts/clarification.md
+    capabilities:
+      - Capture one-time clarification profile (strict/balanced/deep) with bounded caps.
+      - Manage capped and deduped clarification backlog.
+      - Ask one targeted question per turn by default.
+      - Apply user answers in batch with loop-safety guards.
+    tool_discovery:
+      mode: discovery_first
+      required_capabilities:
+        - clarification_status_read
+      optional_capabilities:
+        - clarification_answers_apply
+        - clarification_questions_write
+        - clarification_backlog_dedupe
+        - clarification_context_read
+      preferred_tool_aliases:
+        clarification_status_read:
+          - get_clarification_status
+        clarification_answers_apply:
+          - process_clarification_answers_batch
+        clarification_questions_write:
+          - store_clarification_questions
+        clarification_backlog_dedupe:
+          - dedupe_clarification_backlog
+        clarification_context_read:
+          - get_context_bundle
+  - id: data_enrichment
+    prompt: agents/prompts/data_enrichment.md
+    capabilities:
+      - Map finalized requirements to eTOM, ODA, and SID references.
+      - Optionally map TMF Open API resource/operation candidates in deep mode.
+      - Persist enrichment evidence and confidence notes.
+      - Skip recomputation when enrichment is already completed.
+    tool_discovery:
+      mode: discovery_first
+      required_capabilities:
+        - enrichment_write
+      optional_capabilities:
+        - tmf_etom_search
+        - tmf_etom_hierarchy_read
+        - tmf_oda_search
+        - tmf_functional_framework_read
+        - tmf_sid_search
+        - tmf_openapi_search
+      preferred_tool_aliases:
+        enrichment_write:
+          - store_enriched_data
+        tmf_etom_search:
+          - search_etom_processes
+        tmf_etom_hierarchy_read:
+          - get_process_hierarchy
+          - get_process_hierarchy_graph
+        tmf_oda_search:
+          - search_oda_components
+        tmf_functional_framework_read:
+          - get_component_links
+          - get_component_links_graph
+          - get_process_components
+          - get_process_components_graph
+          - components_by_proc_func
+        tmf_sid_search:
+          - search_sid_entities
+        tmf_openapi_search:
+          - search_openapi_operations
+  - id: report_generation
+    prompt: agents/prompts/report_generation.md
+    capabilities:
+      - Produce executive-ready requirement analysis report.
+      - Synthesize intake, baseline, clarifications, and enrichment.
+      - Persist report artifact path for registration.
+    tool_discovery:
+      mode: discovery_first
+      optional_capabilities:
+        - report_write
+      preferred_tool_aliases:
+        report_write:
+          - save_report_to_file
+optional_specialists:
+  - id: requirements_analyst
+    prompt: agents/prompts/requirements_analyst.md
+    capabilities:
+      - Decompose requirements into a hierarchical requirement breakdown.
+      - Suggest interfaces and identify NFR or integration risks.
+      - Generate focused clarification questions from decomposition gaps.

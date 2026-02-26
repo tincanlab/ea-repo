@@ -1,0 +1,11 @@
+interface:
+  display_name: "Workspace Creation"
+  short_description: "Create governed workspace creation requests"
+  default_prompt: "Create or verify workspaces needed for this initiative"
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "openarchitect"
+      description: "OpenArchitect context platform MCP server"
+      transport: "http"
+      url: "http://localhost:8101/mcp"

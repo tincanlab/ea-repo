@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/roadmap.schema.json",
+  "title": "OpenArchitect Roadmap",
+  "type": "object",
+  "required": ["kind", "key", "updated_at", "status", "meta"],
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": ["enterprise", "solution", "domain"]
+    },
+    "key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "updated_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "status": {
+      "type": "object",
+      "required": ["health"],
+      "additionalProperties": false,
+      "properties": {
+        "health": {
+          "type": "string",
+          "enum": ["green", "yellow", "red"]
+        },
+        "current": { "type": "string" },
+        "next": { "type": "string" },
+        "risks": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "target", "goal"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "target": { "type": "string", "minLength": 1 },
+          "goal": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "target"],
+        "additionalProperties": false,
+        "properties": {
+          "from": { "type": "string", "minLength": 1 },
+          "to": { "type": "string", "minLength": 1 },
+          "note": { "type": "string" },
+          "target": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "repo_url", "path", "commit"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "repo_url": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "minLength": 1 },
+          "commit": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "required": ["generated_from"],
+      "additionalProperties": false,
+      "properties": {
+        "generated_from": {
+          "type": "object",
+          "required": ["path", "sha256", "generated_at"],
+          "additionalProperties": false,
+          "properties": {
+            "path": { "type": "string", "const": "ROADMAP.md" },
+            "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            "generated_at": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  }
+}
+

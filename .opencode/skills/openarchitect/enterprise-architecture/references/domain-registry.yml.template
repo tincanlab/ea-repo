@@ -1,0 +1,39 @@
+# EA authoritative domain governance map.
+# Keep this file in EA repo at: architecture/enterprise/domain-registry.yml
+# Validate with: docs/design/schemas/domain-registry.schema.json
+
+version: "1.0"
+enterprise_id: ent-example
+domains:
+  - domain_id: om
+    name: Order Management
+    owner: domain-arch-om
+    status: active
+    capabilities:
+      - capability_id: cap-order-capture
+        name: Capture and validate customer orders
+      - capability_id: cap-order-orchestration
+        name: Orchestrate order lifecycle across fulfillment systems
+    standards:
+      frameworks:
+        - TM Forum eTOM
+        - TM Forum SID
+      policies:
+        - domain_events_must_be_idempotent
+        - canonical_order_lifecycle_required
+    target_state:
+      principles:
+        - Expose canonical order lifecycle APIs/events.
+      constraints:
+        - External interfaces must remain backward-compatible for one minor version.
+        - Domain emits lifecycle events for all state transitions.
+    metadata:
+      tmfc_component_id: TMFC005
+
+  - domain_id: catalog
+    name: Product Catalog
+    owner: domain-arch-catalog
+    status: active
+    capabilities:
+      - capability_id: cap-product-definition
+        name: Manage product and offer definitions

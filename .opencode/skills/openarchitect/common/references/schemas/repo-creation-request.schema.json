@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/repo-creation-request.schema.json",
+  "title": "OpenArchitect Repo Creation Request",
+  "type": "object",
+  "required": ["request_id", "repos_requested", "approval", "execution"],
+  "properties": {
+    "workspace_id": {
+      "type": ["string", "null"]
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requested_at_utc": {
+      "type": "string"
+    },
+    "requested_by": {
+      "type": "string"
+    },
+    "source_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "git_path"],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "git_path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "repos_requested": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["repo_key", "owner", "name", "reason"],
+        "properties": {
+          "repo_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "visibility": {
+            "type": "string"
+          },
+          "default_for_workspace": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string",
+            "enum": ["design", "domain", "api", "infra", "other"]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "current_state": {
+            "type": "object",
+            "properties": {
+              "workspace_mapping": {
+                "type": "string"
+              },
+              "github_existence": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "approval": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approved_by": {
+          "type": ["string", "null"]
+        },
+        "approved_at_utc": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "execution": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_repos": {
+          "type": "array"
+        },
+        "mapped_repos": {
+          "type": "array"
+        },
+        "failures": {
+          "type": "array"
+        },
+        "failed_repos": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
+

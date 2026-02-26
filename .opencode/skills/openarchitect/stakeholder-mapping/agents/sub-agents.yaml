@@ -1,0 +1,27 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route stakeholder mapping workflow from intake to decision-ready engagement outputs.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: stakeholder_discovery
+    prompt: agents/prompts/stakeholder_discovery.md
+    capabilities:
+      - Identify stakeholders, roles, concerns, and influence surfaces.
+  - id: decision_rights_mapping
+    prompt: agents/prompts/decision_rights_mapping.md
+    capabilities:
+      - Map decision rights, approval authorities, and escalation paths.
+  - id: risk_alignment
+    prompt: agents/prompts/risk_alignment.md
+    capabilities:
+      - Analyze stakeholder risks, conflicts, and mitigation options.
+  - id: engagement_plan
+    prompt: agents/prompts/engagement_plan.md
+    capabilities:
+      - Define communication cadence, touchpoints, and engagement actions.
+  - id: mapping_validation
+    prompt: agents/prompts/mapping_validation.md
+    capabilities:
+      - Validate coverage and consistency across stakeholder artifacts.

@@ -1,0 +1,32 @@
+version: "0.2"
+solution_key: <kebab-case-stable-key>
+display_name: <human-readable name>
+description: <short description>
+owners:
+  solution_architect: <name-or-team>
+  enterprise_id: <optional enterprise id or key>
+entrypoints:
+  solution_md: SOLUTION.md
+  agents_md: AGENTS.md
+  cascade_state: .openarchitect/cascade-state.yml
+domains:
+  - domain_key: <kebab-case-stable-key>
+    oda_component: <tmf-oda-component-name-or-id>
+    domain_repo:
+      repo_url: <git repo url>
+      entrypoints:
+        domain_md: DOMAIN.md
+        agents_md: AGENTS.md
+        cascade_state: .openarchitect/cascade-state.yml
+    tmf_apis:
+      - api_id: <TMF620|TMF637|...>
+        implementation_repo_url: <optional git repo url>
+repos:
+  - repo_key: solution_design
+    repo_url: <this repo url>
+    purpose: design
+    description: <optional short description>
+    entrypoints:
+      solution_md: SOLUTION.md
+      agents_md: AGENTS.md
+      cascade_state: .openarchitect/cascade-state.yml

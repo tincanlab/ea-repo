@@ -1,0 +1,21 @@
+version: "1.0"
+domain_key: "billing"
+
+requirements:
+  - id: "req-billing-charge-create"
+    parent_requirement_ids:
+      - "req-demo-001"
+    text: "Expose a domain API to create a billing charge for an order."
+    acceptance_criteria:
+      - "Given an order_id and amount, creating a charge returns a charge_id."
+      - "If order_id does not exist, return a domain error code BILLING_ORDER_NOT_FOUND."
+    status: "draft"
+
+  - id: "req-billing-cots-integration"
+    new_scope_reason: "Billing integrates with a COTS payment gateway not covered by solution-level requirements yet."
+    text: "Integrate with payment gateway X using tokenized payment methods only."
+    acceptance_criteria:
+      - "No PAN is stored in the billing domain database."
+      - "Gateway failures are retried with exponential backoff up to 3 attempts."
+    status: "draft"
+

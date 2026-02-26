@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenArchitect Stakeholder Map",
+  "type": "object",
+  "required": ["version", "stakeholders", "decision_gates", "open_questions"],
+  "properties": {
+    "version": { "type": "string" },
+    "source": {
+      "type": "object",
+      "properties": {
+        "requirements_path": { "type": "string" },
+        "workspace_id": { "type": "string" },
+        "cascade_readiness": {
+          "type": "string",
+          "enum": ["ready_for_advancement_review", "not_ready_for_advancement"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "governance_signal": {
+      "$ref": "../../common/references/schemas/governance-signal.schema.json"
+    },
+    "raci": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "gate_id": { "type": "string" },
+          "responsible": { "type": "array", "items": { "type": "string" } },
+          "approver": { "type": "array", "items": { "type": "string" } },
+          "consulted": { "type": "array", "items": { "type": "string" } },
+          "informed": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": true
+      }
+    },
+    "escalation_path": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "trigger": { "type": "string" },
+          "owner": { "type": "string" },
+          "escalation_to": { "type": "string" },
+          "channel": { "type": "string" },
+          "expected_response_sla": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "stakeholders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "role", "concerns", "decision_rights", "engagement"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^stk-[a-z0-9-]+$" },
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "organization": { "type": "string" },
+          "domain": { "type": "string" },
+          "goals": { "type": "array", "items": { "type": "string" } },
+          "concerns": { "type": "array", "items": { "type": "string" } },
+          "decision_rights": { "type": "array", "items": { "type": "string" } },
+          "required_evidence": { "type": "array", "items": { "type": "string" } },
+          "influence": { "type": "string", "enum": ["low", "medium", "high"] },
+          "engagement": {
+            "type": "object",
+            "properties": {
+              "cadence": { "type": "string" },
+              "channel": { "type": "string" },
+              "owner": { "type": "string" }
+            },
+            "additionalProperties": true
+          },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "decision_gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "decision", "approvers"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^gate-[0-9]{3}$" },
+          "decision": { "type": "string" },
+          "approvers": { "type": "array", "items": { "type": "string" } },
+          "due_phase": { "type": "string" },
+          "evidence_required": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": true
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "question", "status"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^q-[0-9]{3}$" },
+          "question": { "type": "string" },
+          "status": { "type": "string", "enum": ["open", "answered"] },
+          "answer": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

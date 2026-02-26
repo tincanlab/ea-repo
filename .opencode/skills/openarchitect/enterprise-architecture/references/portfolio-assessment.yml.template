@@ -1,0 +1,51 @@
+version: "0.1"
+
+context:
+  workspace_id: ""
+  enterprise_id: ""
+  current_state_grounded: false  # true if enterprise-graph was queried
+  generated_at: ""
+
+# --- Portfolio entries ---
+applications:
+  - id: "app-example"
+    name: ""
+    domain: ""
+    description: ""
+    business_value: "medium"  # high | medium | low
+    technical_health: "green"  # green | amber | red
+    recommendation: "maintain"  # invest | maintain | migrate | retire
+    rationale: ""
+    capabilities_supported: []  # cap-IDs
+    dependencies:
+      - target: ""
+        type: ""  # api | data | event | runtime
+    enterprise_graph_evidence:
+      node_id: ""  # if sourced from enterprise-graph
+      blast_radius_nodes: 0
+    notes: ""
+
+# --- Portfolio analysis ---
+analysis:
+  overlaps:
+    - description: ""
+      applications: []  # app-IDs
+      consolidation_recommendation: ""
+  sunset_candidates:
+    - app_id: ""
+      reason: ""
+      migration_target: ""
+      timeline: ""
+  standards_gaps:
+    - standard: ""
+      gap: ""
+      affected_applications: []
+
+# --- Summary ---
+summary:
+  total_applications: 0
+  invest: 0
+  maintain: 0
+  migrate: 0
+  retire: 0
+  critical_actions: []

@@ -1,0 +1,78 @@
+version: "0.1"
+source:
+  requirements_path: "architecture/requirements/requirements.yml"
+  workspace_id: ""
+  run_mode: "manual" # manual | task_worker
+
+mappings:
+  - requirement_id: "req-example"
+    requirement_text: ""
+    etom_processes:
+      - process_id: ""
+        name: ""
+        domain: ""
+        vertical_group: ""
+        relation_to_anchor: "anchor" # anchor | parent | child | sibling
+        anchor_process_id: ""
+        confidence: ""
+    oda_components:
+      - component_id: ""
+        name: ""
+        functional_block: ""
+        confidence: ""
+    functional_functions:
+      - function_id: ""
+        name: ""
+        source_component_id: ""
+        source_process_id: ""
+        confidence: ""
+    sid_entities:
+      - entity_name: ""
+        abe: ""
+        confidence: ""
+    open_api_candidates:
+      - api_name: ""
+        api_id: ""
+        resource: ""
+        operation: ""
+        method: ""
+        path: ""
+        version: ""
+        confidence: ""
+    notes: ""
+
+gaps:
+  - requirement_id: "req-example"
+    issue: ""
+    action: ""
+
+evidence:
+  openapi_mapping_mode: "disabled" # disabled | enabled
+  verification:
+    hierarchy_expected: false
+    hierarchy_used: false
+    reason_if_skipped: ""
+  tool_calls:
+    - tool: "search_etom_processes"
+      query: ""
+      top_k: 3
+    - tool: "get_process_hierarchy"
+      process_identifier: ""
+      depth: 1
+      include_siblings: true
+    - tool: "search_oda_components"
+      query: ""
+      top_k: 3
+    - tool: "get_process_components"
+      process_identifier: ""
+    - tool: "get_component_links"
+      component_id: ""
+    - tool: "components_by_proc_func"
+      process_identifier: ""
+      function_id: ""
+    - tool: "search_sid_entities"
+      query: ""
+      top_k: 3
+    - tool: "search_openapi_operations"
+      query: ""
+      top_k: 3

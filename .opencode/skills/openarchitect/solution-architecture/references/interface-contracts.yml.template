@@ -1,0 +1,67 @@
+version: "0.1"
+interfaces:
+  # --- API interface ---
+  - id: "ifc-example-api"
+    type: "api"
+    owner_component_id: "comp-example"
+    version: "0.1.0"
+    spec_path: "docs/reference/oas/example.oas.yaml"
+    protocol: "REST"  # REST | gRPC | GraphQL
+    auth: "JWT"  # JWT | mTLS | API_KEY | none
+    rate_limit: "100 rps"
+    endpoints:
+      - method: "GET"
+        path: "/api/v1/resources"
+        description: ""
+      - method: "POST"
+        path: "/api/v1/resources"
+        description: ""
+    slo:
+      latency_p95_ms: 200
+      availability: "99.9%"
+    tmf_alignment:
+      api_id: ""  # e.g. TMF620
+      confidence: "mcp_verified"  # mcp_verified | local_knowledge | unverified
+    # Cross-workspace contract metadata (Phase 2 readiness)
+    # Populate when interface crosses domain boundaries
+    cross_workspace:
+      provider_workspace_id: ""  # workspace that owns/implements this interface
+      provider_domain: ""  # human-readable domain name
+      consumer_workspace_ids: []  # workspaces that consume this interface
+      consumer_domains: []  # human-readable domain names
+    notes: ""
+
+  # --- Event interface ---
+  - id: "ifc-example-event"
+    type: "event"
+    owner_component_id: "comp-example"
+    version: "0.1.0"
+    spec_path: "docs/reference/schemas/example.avsc"
+    topic: "domain.events.example"
+    schema_format: "avro"  # avro | json_schema | protobuf
+    ordering: "partition_key"  # partition_key | total | none
+    retention: "7d"
+    idempotency_key: "event_id"
+    payload_fields:
+      - name: "event_id"
+        type: "string"
+        required: true
+        description: "Unique event identifier"
+      - name: "timestamp"
+        type: "string"
+        required: true
+        description: "ISO 8601 event timestamp"
+    tmf_alignment:
+      api_id: ""
+      confidence: "unverified"
+    cross_workspace:
+      provider_workspace_id: ""
+      provider_domain: ""
+      consumer_workspace_ids: []
+      consumer_domains: []
+    notes: ""
+
+governance:
+  versioning: "semver"  # semver | date_based | monotonic
+  deprecation_window: "6 months"
+  breaking_change_policy: "new version required; old version supported for deprecation_window"

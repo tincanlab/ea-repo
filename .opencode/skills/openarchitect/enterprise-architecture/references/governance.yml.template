@@ -1,0 +1,52 @@
+version: "0.1"
+
+context:
+  workspace_id: ""
+  enterprise_id: ""
+  framework_alignment: ""  # TOGAF | Zachman | FEAF | custom
+  generated_at: ""
+
+# --- Architecture review board ---
+review_board:
+  cadence: ""  # weekly | biweekly | monthly
+  members: []  # roles, not names (e.g., "Chief Architect", "Domain Lead - Billing")
+  quorum: ""
+  escalation_path: ""
+
+# --- Review gates ---
+review_gates:
+  - id: "gov-gate-001"
+    name: ""
+    description: ""
+    trigger: ""  # e.g., "new domain architecture", "technology exception", "NFR deviation"
+    required_artifacts: []
+    approvers: []  # roles
+    sla: ""  # e.g., "5 business days"
+
+# --- Standards and policies ---
+standards:
+  - id: "gov-std-001"
+    name: ""
+    category: ""  # technology | security | data | integration | naming
+    description: ""
+    enforcement: "mandatory"  # mandatory | recommended | advisory
+    exceptions_allowed: true
+    compliance_check: ""  # how to verify: manual review | automated CI | constraint-validation skill
+
+# --- Waiver process ---
+waiver_process:
+  request_template: ""
+  evaluation_criteria: []
+  approval_authority: ""
+  expiry_policy: ""  # e.g., "12 months, then re-evaluate"
+  tracking: ""  # where waivers are tracked
+
+# --- Compliance mapping ---
+compliance:
+  - regulation: ""  # GDPR | SOX | PCI_DSS | ISO27001 | HIPAA
+    applicability: ""
+    controls:
+      - control_id: ""
+        description: ""
+        owner: ""
+        evidence_type: ""  # audit_log | certification | attestation | automated_check

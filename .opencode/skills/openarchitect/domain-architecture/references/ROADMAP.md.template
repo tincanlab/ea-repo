@@ -1,0 +1,56 @@
+# ROADMAP (Domain)
+
+Owner: Domain Architect (DA)
+
+Purpose: a single, developer-facing plan for this domain that reconciles multiple upstream inputs into stable implementation targets.
+
+Optional: provide a machine-readable roll-up in `ROADMAP.yml` (same directory) so Solution Architects can aggregate domain roadmaps without parsing Markdown.
+
+Authoring contract:
+- Humans edit `ROADMAP.md` only.
+- Tools/skills generate `ROADMAP.yml` from this file (do not hand-edit `ROADMAP.yml`).
+
+## Scope
+
+- Domain key: `<domain_key>`
+- Time horizon: `<e.g. current quarter + next quarter>`
+- Upstream sources tracked (evidence only): `inputs/solution/<solution_key>/<snapshot_id>/...`
+
+## Current Status
+
+- Health: `<green|yellow|red>`
+- Current milestone: `<milestone-id or name>`
+- Next milestone: `<milestone-id or name>`
+- Key risks:
+  - `<risk>`
+  - `<risk>`
+
+## Roadmap
+
+### Milestones
+
+- `<milestone-1>`: `<date/iteration>`: `<goal>`
+- `<milestone-2>`: `<date/iteration>`: `<goal>`
+
+### Epics / Workstreams
+
+- `<epic-1>`: `<owner/team>`: `<definition of done>`
+- `<epic-2>`: `<owner/team>`: `<definition of done>`
+
+### Backlog (Prioritized)
+
+- P0: `<item>`
+- P1: `<item>`
+- P2: `<item>`
+
+## Implementation Targets (Developer Interface)
+
+Developers should implement against these domain-owned targets (not against multiple upstream snapshots):
+
+- Canonical domain design: `architecture/domains/<domain_key>/domain-design.md` and `architecture/domains/<domain_key>/domain-design.yml`
+- Component specs: `architecture/domains/<domain_key>/component-specs.yml`
+- Interface contracts (upstream): `architecture/solution/interface-contracts.yml` (imported/linked via `inputs/` as needed)
+
+## Decision Log
+
+- `<date>`: `<decision>`: `<link to ADR or PR>`

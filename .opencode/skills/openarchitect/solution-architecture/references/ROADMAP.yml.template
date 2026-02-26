@@ -1,0 +1,34 @@
+kind: "solution"
+key: "<solution_key>"
+updated_at: "<YYYY-MM-DD>"
+
+status:
+  health: "<green|yellow|red>"
+  current: "<milestone-id-or-name>"
+  next: "<milestone-id-or-name>"
+  risks:
+    - "<risk>"
+
+milestones:
+  - id: "<milestone-1>"
+    target: "<YYYY-MM-DD or iteration>"
+    goal: "<goal>"
+
+dependencies:
+  - from: "<domain-a>"
+    to: "<domain-b>"
+    note: "<what/why>"
+    target: "<YYYY-MM-DD or iteration>"
+
+sources:
+  - name: "<domain-a>"
+    repo_url: "<domain-repo-url>"
+    path: "ROADMAP.md"
+    commit: "<sha-or-tag>"
+
+meta:
+  generated_from:
+    path: "ROADMAP.md"
+    sha256: "<sha256>"
+    generated_at: "<RFC3339>"
+

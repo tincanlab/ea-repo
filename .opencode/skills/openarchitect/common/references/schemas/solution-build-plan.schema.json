@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/solution-build-plan.schema.json",
+  "title": "OpenArchitect Solution Build Plan",
+  "type": "object",
+  "required": ["solution_key", "repos"],
+  "additionalProperties": false,
+  "properties": {
+    "solution_key": { "type": "string", "minLength": 1 },
+    "repos": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["repo_key", "kind"],
+        "additionalProperties": false,
+        "properties": {
+          "repo_key": { "type": "string", "minLength": 1 },
+          "kind": {
+            "type": "string",
+            "enum": ["domain", "api", "component", "infra", "misc"]
+          },
+          "domain_key": { "type": "string" },
+          "oda_component": { "type": "string" },
+          "scaffold": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["none", "python_fastapi", "python_library", "node_service"]
+              },
+              "notes": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "bootstrap": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "include_solution_roadmap_in_downstream_inputs": { "type": "boolean" },
+        "create_missing_entrypoints": { "type": "boolean" }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,16 @@
+workspace_id: <workspace-id>
+generated_at_utc: <iso8601>
+generated_by: solution-architecture
+policy_version: v1
+repos:
+  - repo_key: <stable-key>
+    repo_name: <org-or-user/repo-name>
+    purpose: <why this repo is needed>
+    owning_scope: <domain|project|enterprise>
+    source_components:
+      - <component-id>
+    expected_default_for_workspace: false
+    existing_workspace_mapping: false
+    existing_remote_repo: unknown
+    recommendation: <reuse_existing|create_new|defer>
+    notes: <short rationale>

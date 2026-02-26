@@ -1,0 +1,144 @@
+version: "0.1"
+
+# --- Traceability context ---
+context:
+  workspace_id: ""
+  workspace_kind: ""  # domain | component
+  domain_name: ""
+  domain_profile: ""  # billing | order-management | service-order-management | generic
+  cascade_state:
+    requirements: ""
+    solution_architecture: ""
+    domain_architecture: ""
+  topology_snapshot:
+    parent_workspaces: []
+    sibling_workspaces: []
+  sa_baseline:
+    architecture_design_path: "architecture/solution/architecture-design.yml"
+    interface_contracts_path: "architecture/solution/interface-contracts.yml"
+    component_specs_path: ""  # architecture/domains/<domain>/component-specs.yml
+  generated_at: ""
+
+# --- Domain boundary ---
+bounded_context:
+  name: ""
+  description: ""
+  ubiquitous_language:
+    - term: ""
+      definition: ""
+  anti_corruption_layers:
+    - external_domain: ""
+      strategy: ""  # adapter | facade | translator
+      interface_id: ""
+
+# --- Domain aggregates ---
+aggregates:
+  - id: "ent-example-aggregate"
+    name: ""
+    description: ""
+    root_entity: true
+    entities:
+      - id: "ent-example-entity"
+        name: ""
+        fields:
+          - name: ""
+            type: ""
+            required: true
+            constraints: ""
+        indexes: []
+    value_objects:
+      - name: ""
+        fields: []
+    domain_events:
+      - id: "evt-example"
+        name: ""
+        trigger: ""  # state transition, command, external
+        payload_fields: []
+    storage:
+      type: "relational"  # relational | document | event_store | cache
+      technology: ""
+      consistency: "strong"  # strong | eventual | saga
+      access_patterns: []
+    sid_alignment:
+      entity: ""  # SID entity name
+      confidence: "mcp_verified"  # mcp_verified | local_knowledge | unverified
+
+# --- Workflows (for orchestration domains) ---
+workflows:
+  - id: "wf-example"
+    name: ""
+    type: "state_machine"  # state_machine | saga | pipeline
+    description: ""
+    states:
+      - name: ""
+        type: "initial"  # initial | intermediate | terminal | error
+        transitions:
+          - target: ""
+            trigger: ""
+            guard: ""
+            action: ""
+            event_emitted: ""  # evt-ID
+    compensating_actions:
+      - step: ""
+        compensation: ""
+    tmf_alignment:
+      process: ""  # eTOM process ref
+      confidence: "unverified"
+
+# --- Interface implementations ---
+interface_implementations:
+  - interface_id: ""  # ifc-ID from SA interface-contracts.yml
+    implementation_component: ""  # comp-ID
+    conformance: "full"  # full | partial | deviated
+    deviation_notes: ""
+    api_details:
+      operations:
+        - method: ""
+          path: ""
+          description: ""
+          request_schema: ""
+          response_schema: ""
+          error_codes: []
+          auth: ""
+          rate_limit: ""
+      pagination: ""  # cursor | offset | none
+      versioning: ""  # path | header | query
+
+# --- TMF alignment summary ---
+tmf_alignment:
+  covered_apis:
+    - api_id: ""  # e.g. TMF620
+      operations_covered: []
+      confidence: "mcp_verified"
+  uncovered_apis:
+    - api_id: ""
+      reason: ""
+  sid_mappings:
+    - domain_entity: ""  # ent-ID
+      sid_entity: ""
+      confidence: "unverified"
+
+# --- Compliance ---
+compliance:
+  - standard: ""  # PCI_DSS | SOX | GDPR | TMF_LIFECYCLE | CALEA
+    applicability: ""
+    controls: []
+    notes: ""
+
+# --- Decisions ---
+decisions:
+  - id: "adr-001"
+    title: ""
+    status: "proposed"
+    context: ""
+    decision: ""
+    consequences: ""
+    sa_deviation: false  # true if this deviates from SA-level patterns
+    sa_review_required: false
+
+# --- Conformance report ---
+sa_conformance:
+  nfr_budget_fit: true  # do domain SLOs fit SA allocation?
+  interface_conformance: []  # [{interface_id, status: conformant|deviated, notes}]
+  pattern_conformance: []  # [{pattern, status, notes}]
+  issues: []

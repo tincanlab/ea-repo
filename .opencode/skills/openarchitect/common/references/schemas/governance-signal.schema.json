@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/governance-signal.schema.json",
+  "title": "OpenArchitect Governance Signal",
+  "type": "object",
+  "required": ["cascade_layer", "cascade_recommendation"],
+  "properties": {
+    "workspace_id": { "type": "string" },
+    "cascade_layer": {
+      "type": "string",
+      "enum": [
+        "requirements",
+        "enterprise_architecture",
+        "solution_architecture",
+        "domain_architecture",
+        "implementation",
+        "unknown"
+      ]
+    },
+    "cascade_recommendation": {
+      "type": "string",
+      "enum": ["ready_for_review", "remediation_required", "block_advancement"]
+    },
+    "remediation_status": {
+      "type": "string",
+      "enum": ["none", "pending", "complete"]
+    },
+    "note": { "type": "string" }
+  },
+  "additionalProperties": true
+}

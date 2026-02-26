@@ -1,0 +1,27 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route TMF implementation workflow from OpenAPI spec to runnable backend service.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: spec_ingestion
+    prompt: agents/prompts/spec_ingestion.md
+    capabilities:
+      - Parse and normalize OpenAPI inputs for generation-ready processing.
+  - id: service_scaffolding
+    prompt: agents/prompts/service_scaffolding.md
+    capabilities:
+      - Generate service scaffold, routing, and baseline module layout.
+  - id: persistence_mapping
+    prompt: agents/prompts/persistence_mapping.md
+    capabilities:
+      - Map entities to persistence model and implement CRUD behavior.
+  - id: conformance_checks
+    prompt: agents/prompts/conformance_checks.md
+    capabilities:
+      - Validate endpoint behavior against API contracts and data rules.
+  - id: dev_validation
+    prompt: agents/prompts/dev_validation.md
+    capabilities:
+      - Validate runnable service quality, tests, and local execution readiness.

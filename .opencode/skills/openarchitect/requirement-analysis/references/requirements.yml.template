@@ -1,0 +1,56 @@
+version: "0.1"
+analysis_mode: "balanced" # strict | balanced | deep
+clarification_policy:
+  profile: "balanced" # strict | balanced | deep
+  max_questions_total: 10 # strict=5, balanced=10, deep=20 (bounded max=20)
+  max_new_questions_per_turn: 5 # bounded max=5
+expansion_focus_areas: ["none"] # scope | nfr | integrations | compliance | data | ux | none
+source:
+  intake_summary: ""
+  links: []
+  cascade_readiness: "not_ready_for_advancement" # ready_for_advancement_review | not_ready_for_advancement
+
+governance_signal:
+  workspace_id: "" # optional
+  cascade_layer: "requirements" # requirements | enterprise_architecture | solution_architecture | domain_architecture | implementation | unknown
+  cascade_recommendation: "remediation_required" # ready_for_review | remediation_required | block_advancement
+  remediation_status: "pending" # none | pending | complete
+  note: ""
+
+problem_statement: ""
+goals: []
+non_goals: []
+
+scope:
+  in_scope: []
+  out_of_scope: []
+
+assumptions: []
+constraints: []
+dependencies: []
+
+nfrs:
+  - id: "nfr-availability"
+    text: ""
+    target: ""
+  - id: "nfr-latency"
+    text: ""
+    target: ""
+
+requirements:
+  - id: "req-example"
+    title: ""
+    text: ""
+    type: "functional" # functional | non_functional | constraint
+    priority: "P0" # P0 | P1 | P2
+    status: "draft" # draft | approved | deferred
+    acceptance_criteria:
+      - ""
+    notes: ""
+
+open_questions:
+  - id: "q-001"
+    question: ""
+    status: "open" # open | answered
+    answer: ""
+    notes: ""

@@ -1,0 +1,52 @@
+version: "0.1"
+source:
+  requirements_path: "architecture/requirements/requirements.yml"
+  workspace_id: ""
+  cascade_readiness: "not_ready_for_advancement" # ready_for_advancement_review | not_ready_for_advancement
+
+governance_signal:
+  workspace_id: "" # optional
+  cascade_layer: "requirements" # requirements | enterprise_architecture | solution_architecture | domain_architecture | implementation | unknown
+  cascade_recommendation: "remediation_required" # ready_for_review | remediation_required | block_advancement
+  remediation_status: "pending" # none | pending | complete
+  note: ""
+
+use_cases:
+  - id: "uc-example"
+    status: "active" # active | deprecated | superseded
+    revision: 1
+    supersedes: [] # list of prior uc-* IDs this entry supersedes
+    superseded_by: "" # uc-* ID if this entry is superseded
+    change_reason: ""
+    name: ""
+    summary: ""
+    linked_requirements:
+      - "req-example"
+    actors:
+      - ""
+    trigger: ""
+    preconditions:
+      - ""
+    main_flow:
+      - step: 1
+        action: ""
+    alternate_flows:
+      - condition: ""
+        steps:
+          - ""
+    error_flows:
+      - condition: ""
+        handling: ""
+    inputs:
+      - ""
+    outputs:
+      - ""
+    acceptance_criteria:
+      - ""
+    notes: ""
+
+open_questions:
+  - id: "q-001"
+    question: ""
+    status: "open" # open | answered
+    answer: ""

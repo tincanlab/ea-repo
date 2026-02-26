@@ -1,0 +1,22 @@
+workspace_id: <workspace-id>
+generated_at_utc: <iso8601>
+generated_by: solution-architecture
+policy_version: v1
+workspaces:
+  - workspace_key: <stable-key>
+    name: <workspace-name>
+    workspace_kind: <component|domain|project|enterprise>
+    enterprise_id: <enterprise-id>
+    tenant_id: <tenant-id-or-null>
+    purpose: <why this workspace is needed>
+    source_components:
+      - <component-id>
+    existing_workspace_match: false
+    candidate_workspace_ids: []
+    relation_updates_required:
+      - relation_type: <component_in_domain|project_in_domain|enterprise_plans_project|enterprise_plans_domain>
+        source_workspace_ref: <workspace-id-or-workspace-key>
+        target_workspace_ref: <workspace-id-or-workspace-key>
+        status: active
+    recommendation: <reuse_existing|create_new|defer>
+    notes: <short rationale>

@@ -1,0 +1,24 @@
+workspace_id: <workspace-id>
+request_id: <ws-req-yyyymmdd-hhmmss>
+executed_at_utc: <iso8601>
+executed_by: <user-or-agent>
+execution:
+  state: <completed|partial_failure|failed|blocked_no_permissions>
+created_workspaces:
+  - workspace_key: <stable-key>
+    workspace_id: <workspace-id>
+    name: <workspace-name>
+    workspace_kind: <component|domain|project|enterprise>
+relation_updates:
+  - relation_type: <component_in_domain|project_in_domain|enterprise_plans_project|enterprise_plans_domain>
+    source_workspace_id: <workspace-id>
+    target_workspace_id: <workspace-id>
+    status: active
+failures:
+  - workspace_key: <stable-key-or-null>
+    step: <search|create|set_kind|relation>
+    error: <error text>
+evidence:
+  workspace_searches: []
+  created_workspace_refs: []
+  relation_upserts: []

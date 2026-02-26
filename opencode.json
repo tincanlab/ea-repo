@@ -1,0 +1,31 @@
+{
+  "autoupdate": false,
+  "model": "zai-coding-plan/glm-4.7",
+  "tools": {
+    "tmf-mcp*": false,
+    "postgres-mcp": false
+  },
+  "mcp": {
+    "tmf-mcp": {
+      "type": "remote",
+      "url": "http://host.docker.internal:8000/mcp",
+      "enabled": true
+    },
+    "postgres-mcp": {
+      "type": "remote",
+      "url": "http://host.docker.internal:9000/mcp",
+      "enabled": true
+    },
+    "openarchitect": {
+      "type": "remote",
+      "url": "http://localhost:8101/mcp",
+      "enabled": false
+    },
+    "enterprise": {
+      "type": "remote",
+      "url": "http://localhost:8102/mcp",
+      "enabled": false
+    }
+  },
+  "$schema": "https://opencode.ai/config.json"
+}

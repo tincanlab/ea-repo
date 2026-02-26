@@ -1,0 +1,15 @@
+version: "0.1"
+domain: "<domain-name>"
+source_layer: "solution_architecture"
+components:
+  - id: "comp-example"
+    description: ""
+    provided_interfaces:
+      - "ifc-example-provide"
+    consumed_interfaces:
+      - "ifc-example-consume"
+    dependencies:
+      - component_id: "comp-upstream"
+        interface_id: "ifc-upstream"
+        required_before: "implementation"  # design | implementation | deployment
+    notes: ""

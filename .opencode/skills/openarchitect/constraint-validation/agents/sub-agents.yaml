@@ -1,0 +1,27 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route constraint validation workflow from scope definition to evidence-based verdict.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: constraint_discovery
+    prompt: agents/prompts/constraint_discovery.md
+    capabilities:
+      - Collect applicable constraints by enterprise, environment, and scope.
+  - id: evidence_collection
+    prompt: agents/prompts/evidence_collection.md
+    capabilities:
+      - Collect graph evidence (nodes, edges, paths) required for evaluation.
+  - id: verdict_synthesis
+    prompt: agents/prompts/verdict_synthesis.md
+    capabilities:
+      - Evaluate each constraint and compute overall allow/deny/needs-clarification decision.
+  - id: gap_analysis
+    prompt: agents/prompts/gap_analysis.md
+    capabilities:
+      - Identify missing evidence and precise follow-up queries to close gaps.
+  - id: report_generation
+    prompt: agents/prompts/report_generation.md
+    capabilities:
+      - Generate structured and narrative validation reports with remediation actions.

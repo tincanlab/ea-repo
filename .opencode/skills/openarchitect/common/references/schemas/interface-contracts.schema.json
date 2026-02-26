@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/interface-contracts.schema.json",
+  "title": "OpenArchitect Interface Contracts Artifact",
+  "type": "object",
+  "required": ["interfaces"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "owner_component_id", "version", "spec_path"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ifc-[a-z0-9][a-z0-9-]*$"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["api", "event"]
+          },
+          "owner_component_id": {
+            "type": "string",
+            "pattern": "^comp-[a-z0-9][a-z0-9-]*$"
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "spec_path": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

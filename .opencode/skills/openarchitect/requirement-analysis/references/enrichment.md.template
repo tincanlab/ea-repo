@@ -1,0 +1,40 @@
+# Requirements Enrichment
+
+## Context Evidence
+
+- Analysis mode: `strict | balanced | deep`
+- Run mode: `manual | task_worker`
+- Workspace ID (optional): 
+- Source requirements: `architecture/requirements/requirements.yml`
+- Tools used:
+  - `search_etom_processes`
+  - `get_process_hierarchy` (when available/expected)
+  - `search_oda_components`
+  - `get_process_components` / `get_component_links` / `components_by_proc_func` (deep mode)
+  - `search_sid_entities`
+  - `search_openapi_operations` (deep mode, optional)
+- Open API mapping mode: `disabled` | `enabled`
+- Verification:
+  - hierarchy_expected: `true | false`
+  - hierarchy_used: `true | false`
+  - reason_if_skipped: `<text>`
+
+## Mapping Summary
+
+- 
+
+## Requirement-to-Process Mappings
+
+- 
+
+## Open API Candidate Mappings (Optional)
+
+- 
+
+## Functional Framework Mappings (Deep Mode)
+
+- 
+
+## Gaps and Follow-ups
+
+- 

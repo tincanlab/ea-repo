@@ -1,0 +1,24 @@
+kind: "domain"
+key: "<domain_key>"
+updated_at: "<YYYY-MM-DD>"
+
+status:
+  health: "<green|yellow|red>"
+  current: "<milestone-id-or-name>"
+  next: "<milestone-id-or-name>"
+  risks:
+    - "<risk>"
+
+milestones:
+  - id: "<milestone-1>"
+    target: "<YYYY-MM-DD or iteration>"
+    goal: "<goal>"
+
+dependencies: []
+sources: []
+
+meta:
+  generated_from:
+    path: "ROADMAP.md"
+    sha256: "<sha256>"
+    generated_at: "<RFC3339>"

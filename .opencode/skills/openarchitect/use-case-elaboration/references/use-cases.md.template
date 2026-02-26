@@ -1,0 +1,31 @@
+# Use Cases
+
+## Index
+
+| Use case | Primary actor | Description | Requirement IDs |
+|---|---|---|---|
+| UC-001 |  |  |  |
+
+## UC-001: [Title]
+
+**Primary actor:**  
+**Trigger:**  
+**Preconditions:**  
+**Postconditions:**  
+**Related requirements:** `req-...`
+
+### Main flow
+
+1. 
+
+### Alternate / error flows
+
+- 
+
+### Data / business rules
+
+- 
+
+### Acceptance criteria
+
+- 

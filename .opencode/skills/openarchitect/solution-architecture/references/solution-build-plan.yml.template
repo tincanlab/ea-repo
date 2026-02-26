@@ -1,0 +1,26 @@
+solution_key: "<solution_key>"
+
+# SA-owned plan that tells coding agents what repos exist and what minimal scaffold to create in each.
+# Keep this small: it's about composing a whole system across repos, not perfect engineering.
+
+repos:
+  - repo_key: "domain_<domain_key>"
+    kind: "domain" # domain|api|component|infra|misc
+    domain_key: "<domain_key>"
+    oda_component: "<oda_component_optional>"
+    scaffold:
+      type: "none" # none|python_fastapi|python_library|node_service
+      notes: "<optional guidance>"
+
+  - repo_key: "api_<api_id>"
+    kind: "api"
+    scaffold:
+      type: "python_fastapi"
+      notes: "Generate from TMF OpenAPI where available."
+
+bootstrap:
+  # When true, downstream repos get a pinned snapshot of this solution's ROADMAP.md under inputs/.
+  include_solution_roadmap_in_downstream_inputs: true
+  # Create missing entrypoints (non-destructive; do not overwrite existing files).
+  create_missing_entrypoints: true
+

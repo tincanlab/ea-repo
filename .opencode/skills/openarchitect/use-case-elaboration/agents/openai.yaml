@@ -1,0 +1,12 @@
+﻿interface:
+  display_name: "Use Case Elaboration"
+  short_description: "Elaborate use cases with orchestrated specialist prompts."
+  default_prompt: "Run use-case elaboration using agents/sub-agents.yaml and specialist prompts."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "openarchitect"
+      description: "OpenArchitect context platform MCP server"
+      transport: "http"
+      url: "http://localhost:8101/mcp"
+

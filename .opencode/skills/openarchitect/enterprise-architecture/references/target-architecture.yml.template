@@ -1,0 +1,135 @@
+version: "0.1"
+
+# --- Traceability context ---
+context:
+  workspace_id: ""
+  workspace_kind: "enterprise"
+  enterprise_id: ""
+  environment: ""
+  cascade_state:
+    requirements: ""
+    enterprise_architecture: ""
+  topology_snapshot:
+    child_domains: []  # [{workspace_id, name, workspace_kind, cascade_state}]
+    child_projects: []  # [{workspace_id, name, workspace_kind, cascade_state}]
+  current_state_grounded: false  # true if enterprise-graph was queried
+  generated_at: ""
+
+governance_signal:
+  workspace_id: ""  # optional
+  cascade_layer: "enterprise_architecture"  # requirements | enterprise_architecture | solution_architecture | domain_architecture | implementation | unknown
+  cascade_recommendation: "remediation_required"  # ready_for_review | remediation_required | block_advancement
+  remediation_status: "pending"  # none | pending | complete
+  note: ""
+
+# --- Business vision and strategy (primary driver) ---
+business_strategy:
+  vision: ""  # corporate vision statement
+  mission: ""
+  strategic_pillars: []  # top-level strategic themes
+  growth_targets: []  # revenue, market, customer targets
+  digital_transformation_objectives: []
+  investment_horizon: ""  # e.g., "3-year plan 2026-2028"
+  build_buy_preference: ""  # build-first | buy-first | partner-first | pragmatic
+  competitive_positioning: ""
+
+# --- Strategic context (derived from strategy) ---
+strategic_context:
+  industry: ""
+  market_position: ""
+  strategic_priorities: []  # capabilities that must improve to deliver the strategy
+  regulatory_mandates: []
+  technology_context: ""
+
+# --- Architecture principles ---
+principles:
+  - id: "prin-001"
+    name: ""
+    statement: ""
+    rationale: ""
+    implications: []
+
+# --- Domain decomposition ---
+domains:
+  - id: "domain-example"
+    name: ""
+    description: ""
+    workspace_id: ""  # child workspace if exists
+    boundary: ""  # what this domain owns
+    key_capabilities: []  # cap-IDs
+    interdependencies:
+      - target_domain: ""
+        interface_type: ""  # api | event | data
+        description: ""
+
+# --- Technology strategy ---
+technology_strategy:
+  cloud_strategy: ""  # cloud-first | hybrid | on-premise | multi-cloud
+  preferred_platforms: []
+  build_buy_partner:
+    - capability: ""
+      decision: "build"  # build | buy | partner
+      rationale: ""
+  integration_strategy:
+    pattern: ""  # api-led | event-backbone | hybrid
+    api_management: ""
+    event_platform: ""
+
+# --- Security architecture ---
+security_architecture:
+  identity_model: ""
+  data_classification_tiers:
+    - tier: ""
+      controls: []
+  compliance_controls:
+    - standard: ""
+      controls: []
+
+# --- NFR envelopes (for SA to allocate within) ---
+nfr_envelopes:
+  availability_tiers:
+    - tier: "platinum"
+      target: "99.99%"
+      domains: []
+    - tier: "gold"
+      target: "99.9%"
+      domains: []
+    - tier: "silver"
+      target: "99.5%"
+      domains: []
+  latency_classes:
+    - class: "real-time"
+      target_ms: 100
+      domains: []
+    - class: "interactive"
+      target_ms: 500
+      domains: []
+    - class: "batch"
+      target_ms: 5000
+      domains: []
+  security_classes:
+    - class: "restricted"
+      controls: []
+    - class: "confidential"
+      controls: []
+    - class: "internal"
+      controls: []
+  cost_envelopes:
+    - domain: ""
+      budget_allocation: ""  # tshirt: S/M/L/XL or percentage
+
+# --- TMF alignment ---
+tmf_alignment:
+  oda_domains: []  # [{name, confidence}]
+  etom_processes: []  # [{ref, confidence}]
+  coverage_summary: ""
+
+# --- Decisions ---
+decisions:
+  - id: "adr-001"
+    title: ""
+    status: "proposed"
+    context: ""
+    decision: ""
+    consequences: ""
+    alternatives: ""

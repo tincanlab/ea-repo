@@ -1,0 +1,31 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route solution architecture workflow from requirements baseline to validated outputs.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: system_decomposition
+    prompt: agents/prompts/system_decomposition.md
+    capabilities:
+      - Decompose baseline requirements into bounded components and responsibilities.
+  - id: interface_contracts
+    prompt: agents/prompts/interface_contracts.md
+    capabilities:
+      - Define producer/consumer contracts, API boundaries, and interaction patterns.
+  - id: nfr_budgeting
+    prompt: agents/prompts/nfr_budgeting.md
+    capabilities:
+      - Allocate and validate NFR budgets (latency, availability, security, resilience).
+  - id: strategic_blueprint
+    prompt: agents/prompts/strategic_blueprint.md
+    capabilities:
+      - Synthesize high-level architecture blueprint, phased strategy, and major risk controls.
+  - id: roadmap_planning
+    prompt: agents/prompts/roadmap_planning.md
+    capabilities:
+      - Produce phased implementation roadmap with dependencies and risk controls.
+  - id: architecture_validation
+    prompt: agents/prompts/architecture_validation.md
+    capabilities:
+      - Validate consistency across decomposition, contracts, and NFR targets.

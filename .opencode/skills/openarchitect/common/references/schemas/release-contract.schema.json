@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.local/schemas/release-contract.schema.json",
+  "title": "OpenArchitect Release Contract",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "release_id",
+    "workspace_id",
+    "environment",
+    "git_sha",
+    "released_at"
+  ],
+  "properties": {
+    "release_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0"]
+    },
+    "workspace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "enterprise_id": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "git_sha": {
+      "type": "string",
+      "minLength": 1
+    },
+    "released_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approved_inputs": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "source_artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

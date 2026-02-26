@@ -1,0 +1,74 @@
+version: "0.1"
+
+# --- Traceability context ---
+context:
+  workspace_id: ""
+  workspace_kind: ""  # enterprise | domain | project | component
+  cascade_state:
+    requirements: ""  # draft | proposed | approved
+    solution_architecture: ""  # draft | proposed | approved
+  topology_snapshot:
+    # Captured at skill start for traceability (Phase 3 pinning readiness)
+    parent_workspaces: []  # [{workspace_id, workspace_kind, relation_type}]
+    child_workspaces: []  # [{workspace_id, workspace_kind, relation_type}]
+    sibling_workspaces: []  # [{workspace_id, workspace_kind, relation_type}]
+  requirements_baseline:
+    path: "architecture/requirements/requirements.yml"
+    artifact_id: ""  # workspace artifact ref if registered
+  generated_at: ""  # ISO 8601
+
+# --- Architectural drivers ---
+drivers:
+  nfrs:
+    - id: "nfr-availability"
+      text: ""
+      target: ""
+      source_req: ""  # back-reference to requirements.yml ID
+    - id: "nfr-latency"
+      text: ""
+      target: ""
+      source_req: ""
+  constraints: []  # from requirements + enterprise/parent workspace
+  regulatory: []  # GDPR, PCI, HIPAA, lawful intercept, etc.
+
+# --- System architecture ---
+architecture:
+  description: ""
+  patterns:
+    - name: ""  # e.g. microservices, event-driven, API-first, CQRS
+      rationale: ""
+      nfr_driver: ""  # which NFR justifies this pattern
+  deployment_topology: ""  # brief description or diagram reference
+
+# --- Domain decomposition ---
+domains:
+  - id: "domain-example"
+    name: ""
+    description: ""
+    component_specs_path: "architecture/domains/example/component-specs.yml"
+    workspace_id: ""  # child workspace if exists
+    interface_contracts: []  # ifc-IDs owned by this domain
+
+# --- NFR budget allocation ---
+nfr_budget:
+  - tier: ""  # e.g. edge, api-gateway, core-services, data-layer
+    latency_budget_ms: 0
+    availability: ""
+    throughput_rps: 0
+    cost_envelope: ""  # tshirt: S/M/L/XL
+
+# --- TM Forum alignment ---
+tmf_alignment:
+  oda_components: []  # [{name, confidence: mcp_verified|local_knowledge|unverified}]
+  etom_processes: []  # [{ref, confidence}]
+  open_apis: []  # [{id, version, confidence}]
+
+# --- Decisions ---
+decisions:
+  - id: "adr-001"
+    title: ""
+    status: "proposed"  # proposed | accepted | deprecated | superseded
+    context: ""
+    decision: ""
+    consequences: ""
+    alternatives: ""

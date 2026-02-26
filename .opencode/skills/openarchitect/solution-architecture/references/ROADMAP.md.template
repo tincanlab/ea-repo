@@ -1,0 +1,54 @@
+# ROADMAP (Solution)
+
+Owner: Solution Architect (SA)
+
+Purpose: a single, developer-facing plan for this solution that aggregates domain roadmaps and reconciles cross-domain dependencies.
+
+Authoring contract:
+- Humans edit `ROADMAP.md` only.
+- Tools/skills generate `ROADMAP.yml` from this file (do not hand-edit `ROADMAP.yml`).
+
+## Scope
+
+- Solution key: `<solution_key>`
+- Time horizon: `<e.g. current quarter + next quarter>`
+- Domain sources: domain repo `ROADMAP.md` / optional `ROADMAP.yml`
+- Provenance evidence: domain repo `inputs/` snapshots
+
+## Current Status
+
+- Health: `<green|yellow|red>`
+- Current milestone: `<milestone-id or name>`
+- Next milestone: `<milestone-id or name>`
+- Key cross-domain risks:
+  - `<risk>`
+  - `<risk>`
+
+## Roadmap
+
+### Milestones
+
+- `<milestone-1>`: `<date/iteration>`: `<goal>`
+- `<milestone-2>`: `<date/iteration>`: `<goal>`
+
+### Cross-Domain Dependencies
+
+- `<domain-a>` depends on `<domain-b>`: `<what/why>`: `<target date>`
+
+### Domain Roll-Up (Links)
+
+- `<domain-a>`: `<domain-repo-url>/blob/<branch-or-commit>/ROADMAP.md` (and optional `ROADMAP.yml`)
+- `<domain-b>`: `<domain-repo-url>/blob/<branch-or-commit>/ROADMAP.md` (and optional `ROADMAP.yml`)
+
+## Implementation Targets (Developer Interface)
+
+Developers should implement against the solution's canonical artifacts and domain-owned artifacts:
+
+- `architecture/requirements/requirements.yml`
+- `architecture/solution/architecture-design.yml`
+- `architecture/solution/interface-contracts.yml`
+- Domain repos: `ROADMAP.md` and canonical domain design artifacts (per domain repo conventions)
+
+## Decision Log
+
+- `<date>`: `<decision>`: `<link to ADR or PR>`

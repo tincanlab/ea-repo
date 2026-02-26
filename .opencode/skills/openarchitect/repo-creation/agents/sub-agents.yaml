@@ -1,0 +1,27 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route repository provisioning workflow from requested repos to registered outputs.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: request_normalization
+    prompt: agents/prompts/request_normalization.md
+    capabilities:
+      - Normalize repo creation intents, naming, ownership, and policy metadata.
+  - id: repo_existence_check
+    prompt: agents/prompts/repo_existence_check.md
+    capabilities:
+      - Verify existing repositories and detect collisions before creation.
+  - id: repo_creation_execution
+    prompt: agents/prompts/repo_creation_execution.md
+    capabilities:
+      - Execute repo creation according to governance and provider policy.
+  - id: manifest_update
+    prompt: agents/prompts/manifest_update.md
+    capabilities:
+      - Apply Git-first manifest updates (solution-index and related artifacts).
+  - id: bootstrap_sync
+    prompt: agents/prompts/bootstrap_sync.md
+    capabilities:
+      - Bootstrap downstream repo entrypoints and upstream input snapshots.

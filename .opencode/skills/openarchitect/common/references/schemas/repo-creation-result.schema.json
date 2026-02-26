@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/repo-creation-result.schema.json",
+  "title": "OpenArchitect Repo Creation Result",
+  "type": "object",
+  "required": ["request_id", "execution"],
+  "properties": {
+    "workspace_id": {
+      "type": ["string", "null"]
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "executed_at_utc": {
+      "type": "string"
+    },
+    "executed_by": {
+      "type": "string"
+    },
+    "execution": {
+      "type": "object",
+      "required": ["state"],
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "created_repos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["owner", "name"],
+        "properties": {
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "html_url": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "mapped_repos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["owner", "name"],
+        "properties": {
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "workspace_repo_url": {
+            "type": "string"
+          },
+          "is_default": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["owner", "name", "step", "error"],
+        "properties": {
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "step": {
+            "type": "string",
+            "minLength": 1
+          },
+          "error": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "github_checks": {
+          "type": "array"
+        },
+        "workspace_repo_mappings": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
+

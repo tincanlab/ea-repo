@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/solution-index.schema.json",
+  "title": "OpenArchitect Solution Index Manifest",
+  "type": "object",
+  "required": ["version", "solution_key", "entrypoints", "repos"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "solution_key": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "owners": {
+      "type": "object",
+      "properties": {
+        "solution_architect": {
+          "type": "string"
+        },
+        "enterprise_id": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "entrypoints": {
+      "type": "object",
+      "required": ["solution_md", "agents_md", "cascade_state"],
+      "properties": {
+        "solution_md": {
+          "type": "string",
+          "minLength": 1
+        },
+        "agents_md": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cascade_state": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["domain_key", "domain_repo"],
+        "properties": {
+          "domain_key": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*$"
+          },
+          "oda_component": {
+            "type": "string"
+          },
+          "domain_repo": {
+            "type": "object",
+            "required": ["repo_url", "entrypoints"],
+            "properties": {
+              "repo_url": {
+                "type": "string",
+                "minLength": 1
+              },
+              "entrypoints": {
+                "type": "object",
+                "required": ["agents_md", "cascade_state"],
+                "properties": {
+                  "domain_md": {
+                    "type": "string"
+                  },
+                  "agents_md": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "cascade_state": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          },
+          "tmf_apis": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["api_id"],
+              "properties": {
+                "api_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "implementation_repo_url": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "repos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["repo_key", "repo_url", "purpose", "entrypoints"],
+        "properties": {
+          "repo_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "repo_url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "enum": ["design", "domain", "api", "infra", "other"]
+          },
+          "description": {
+            "type": "string"
+          },
+          "entrypoints": {
+            "type": "object",
+            "required": ["agents_md", "cascade_state"],
+            "properties": {
+              "solution_md": {
+                "type": "string"
+              },
+              "domain_md": {
+                "type": "string"
+              },
+              "agents_md": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cascade_state": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
+

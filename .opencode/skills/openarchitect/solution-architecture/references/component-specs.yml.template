@@ -1,0 +1,40 @@
+version: "0.1"
+components:
+  - id: "comp-example"
+    description: ""
+    code_paths:
+      - ""
+    interfaces:
+      - "ifc-example"
+    patterns:
+      integration: "event_driven"  # event_driven | request_reply | streaming | batch
+      consistency: "eventual"  # strong | eventual | saga | reservation_then_confirm
+      resiliency: "circuit_breaker"  # circuit_breaker | retry | bulkhead | none
+    nfr_budget:
+      availability: "99.9%"
+      latency_p95_ms: 200
+      throughput_rps: 1000
+      error_budget_pct: 0.1
+    # Explicit dependency graph (Phase 4 readiness: component build ordering)
+    # Record which interfaces this component depends on from other components
+    dependencies:
+      - component_id: "comp-other"
+        interface_id: "ifc-other"
+        type: "sync"  # sync | async | event
+        required_before: "implementation"  # design | implementation | deployment
+    tmf_alignment:
+      oda_component: ""  # ODA component name or empty
+      etom_process: ""  # eTOM process ref or empty
+      open_apis: []  # TMF API IDs e.g. ["TMF620", "TMF637"]
+      confidence: "mcp_verified"  # mcp_verified | local_knowledge | unverified
+    slo:
+      - name: "availability"
+        target: "99.9%"
+        measurement: "synthetic probes + real user monitoring"
+      - name: "latency_p95"
+        target: "200ms"
+        measurement: "distributed tracing percentile"
+      - name: "error_rate"
+        target: "<0.1%"
+        measurement: "5xx / total requests"
+    notes: ""

@@ -1,0 +1,16 @@
+interface:
+  display_name: "Requirement Analysis"
+  short_description: "Run orchestrated requirements workflow with specialist sub-agent prompts"
+  default_prompt: "Use $requirement-analysis with agents/sub-agents.yaml to route orchestrator -> expansion/clarification/finalization/enrichment/report."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "openarchitect"
+      description: "OpenArchitect context platform MCP server"
+      transport: "http"
+      url: "http://localhost:8101/mcp"
+    - type: "mcp"
+      value: "tmf-mcp"
+      description: "TM Forum standards MCP server (optional when TMF constraints apply)"
+      transport: "http"
+      url: "http://localhost:8000/mcp"

@@ -1,0 +1,33 @@
+kind: "enterprise"
+key: "<enterprise_key>"
+updated_at: "<YYYY-MM-DD>"
+
+status:
+  health: "<green|yellow|red>"
+  current: "<theme>"
+  next: "<theme>"
+  risks:
+    - "<risk>"
+
+milestones:
+  - id: "<milestone-1>"
+    target: "<YYYY-MM-DD or iteration>"
+    goal: "<goal>"
+
+dependencies:
+  - from: "<solution-a>"
+    to: "<solution-b>"
+    note: "<what/why>"
+    target: "<YYYY-MM-DD or iteration>"
+
+sources:
+  - name: "<solution-a>"
+    repo_url: "<solution-repo-url>"
+    path: "ROADMAP.md"
+    commit: "<sha-or-tag>"
+
+meta:
+  generated_from:
+    path: "ROADMAP.md"
+    sha256: "<sha256>"
+    generated_at: "<RFC3339>"

@@ -1,0 +1,29 @@
+request_id: <repo-req-yyyymmdd-hhmmss>
+requested_at_utc: <iso8601>
+requested_by: <user-or-agent>
+source_artifacts:
+  - kind: repo_plan
+    git_path: architecture/solution/repo-plan.yml
+repos_requested:
+  - repo_key: <stable-key>
+    owner: <github-owner>
+    name: <repo-name>
+    visibility: private
+    default_for_solution: false
+    description: <short description>
+    purpose: <design|domain|api|infra|other>
+    reason: <new-initiative|ownership-boundary|compliance|other>
+    action: <map_only|create_then_map>
+    current_state:
+      workspace_mapping: <mapped|not_mapped>
+      github_existence: <exists|missing|error|unknown>
+approval:
+  state: draft
+  approved_by: null
+  approved_at_utc: null
+execution:
+  state: not_started
+  created_repos: []
+  mapped_repos: []
+  failures: []
+notes: <optional notes>

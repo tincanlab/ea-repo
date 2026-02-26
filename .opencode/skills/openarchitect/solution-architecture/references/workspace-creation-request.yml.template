@@ -1,0 +1,28 @@
+workspace_id: <workspace-id>
+request_id: <ws-req-yyyymmdd-hhmmss>
+requested_at_utc: <iso8601>
+requested_by: <sa-user-or-agent>
+source_artifacts:
+  - kind: workspace_plan
+    git_path: architecture/solution/workspace-plan.yml
+workspaces_requested:
+  - workspace_key: <stable-key>
+    name: <workspace-name>
+    tenant_id: <tenant-id-or-null>
+    enterprise_id: <enterprise-id>
+    workspace_kind: <component|domain|project|enterprise>
+    reason: <new-initiative|decomposition|governance|other>
+    relation_updates_after_create:
+      - relation_type: <component_in_domain|project_in_domain|enterprise_plans_project|enterprise_plans_domain>
+        source_workspace_ref: <workspace-id-or-workspace-key>
+        target_workspace_ref: <workspace-id-or-workspace-key>
+        status: active
+approval:
+  state: draft
+  approved_by: null
+  approved_at_utc: null
+execution:
+  state: not_started
+  created_workspaces: []
+  failed_workspaces: []
+notes: <optional notes>

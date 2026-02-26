@@ -1,0 +1,66 @@
+version: "0.1"
+source:
+  requirements_path: "architecture/requirements/requirements.yml"
+  workspace_id: ""
+  cascade_readiness: "not_ready_for_advancement" # ready_for_advancement_review | not_ready_for_advancement
+
+governance_signal:
+  workspace_id: "" # optional
+  cascade_layer: "requirements" # requirements | enterprise_architecture | solution_architecture | domain_architecture | implementation | unknown
+  cascade_recommendation: "remediation_required" # ready_for_review | remediation_required | block_advancement
+  remediation_status: "pending" # none | pending | complete
+  note: ""
+
+raci:
+  - gate_id: "gate-001"
+    responsible:
+      - ""
+    approver:
+      - ""
+    consulted:
+      - ""
+    informed:
+      - ""
+
+escalation_path:
+  - trigger: "decision blocked > 3 business days"
+    owner: ""
+    escalation_to: ""
+    channel: ""
+    expected_response_sla: ""
+
+stakeholders:
+  - id: "stk-example"
+    name: ""
+    role: ""
+    organization: ""
+    domain: ""
+    goals:
+      - ""
+    concerns:
+      - ""
+    decision_rights:
+      - ""
+    required_evidence:
+      - ""
+    influence: "medium" # low | medium | high
+    engagement:
+      cadence: ""
+      channel: ""
+      owner: ""
+    notes: ""
+
+decision_gates:
+  - id: "gate-001"
+    decision: ""
+    approvers:
+      - ""
+    due_phase: ""
+    evidence_required:
+      - ""
+
+open_questions:
+  - id: "q-001"
+    question: ""
+    status: "open" # open | answered
+    answer: ""

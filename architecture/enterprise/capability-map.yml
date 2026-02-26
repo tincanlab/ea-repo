@@ -1,0 +1,212 @@
+version: "0.1"
+
+context:
+  workspace_id: ""
+  enterprise_id: "enterprise-01"
+  generated_at: "2026-02-21"
+
+capabilities:
+  - id: "cap-product"
+    name: "Product Catalog and Offer Management"
+    level: 1
+    description: "Manage product catalog, commercial offers, product specifications, and pricing"
+    strategic_priority: "critical"
+    current_maturity: "initial"
+    target_maturity: "managed"
+    owning_domains:
+      - "domain-product"
+    tmf_alignment:
+      oda_block: "Product Catalog Management"
+      confidence: "local_knowledge"
+
+    sub_capabilities:
+      - id: "cap-l2-product-catalog"
+        name: "Product Catalog CRUD"
+        level: 2
+        description: "Create, read, update, delete products in the catalog"
+        strategic_priority: "critical"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-product"
+        key_applications: []
+        gaps:
+          - "TMF620 Product Catalog API not yet implemented"
+        investment_required: "S"
+      - id: "cap-l2-offer-management"
+        name: "Commercial Offer Management"
+        level: 2
+        description: "Define and manage commercial offers and bundles"
+        strategic_priority: "high"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-product"
+        key_applications: []
+        gaps:
+          - "Offer catalog not yet defined"
+        investment_required: "S"
+      - id: "cap-l2-pricing"
+        name: "Pricing Management"
+        level: 2
+        description: "Define and manage product and offer pricing"
+        strategic_priority: "high"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-product"
+        key_applications: []
+        gaps:
+          - "Pricing engine not yet implemented"
+        investment_required: "S"
+
+  - id: "cap-order"
+    name: "Order Management and Fulfillment"
+    level: 1
+    description: "Manage order lifecycle from creation through fulfillment and activation"
+    strategic_priority: "critical"
+    current_maturity: "initial"
+    target_maturity: "managed"
+    owning_domains:
+      - "domain-order"
+    tmf_alignment:
+      oda_block: "Order Management"
+      confidence: "local_knowledge"
+
+    sub_capabilities:
+      - id: "cap-l2-order-creation"
+        name: "Order Creation"
+        level: 2
+        description: "Create and validate orders against product catalog"
+        strategic_priority: "critical"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-order"
+        key_applications: []
+        gaps:
+          - "TMF629 Order Management API not yet implemented"
+          - "Product catalog integration not yet established"
+        investment_required: "M"
+      - id: "cap-l2-order-fulfillment"
+        name: "Order Fulfillment Orchestration"
+        level: 2
+        description: "Orchestrate order fulfillment across domains"
+        strategic_priority: "critical"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-order"
+        key_applications: []
+        gaps:
+          - "Fulfillment workflow not yet designed"
+        investment_required: "M"
+      - id: "cap-l2-order-tracking"
+        name: "Order Status Tracking"
+        level: 2
+        description: "Track and report order status throughout lifecycle"
+        strategic_priority: "medium"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-order"
+        key_applications: []
+        gaps:
+          - "Status event framework not yet implemented"
+        investment_required: "S"
+
+  - id: "cap-customer"
+    name: "Customer and Party Profile Management"
+    level: 1
+    description: "Manage customer profiles, party data, and customer accounts"
+    strategic_priority: "high"
+    current_maturity: "initial"
+    target_maturity: "managed"
+    owning_domains:
+      - "domain-customer"
+    tmf_alignment:
+      oda_block: "Customer Party Management"
+      confidence: "local_knowledge"
+
+    sub_capabilities:
+      - id: "cap-l2-customer-profile"
+        name: "Customer Profile Management"
+        level: 2
+        description: "Create and maintain customer profiles and party data"
+        strategic_priority: "high"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-customer"
+        key_applications: []
+        gaps:
+          - "TMF622 Customer Party Management API not yet implemented"
+        investment_required: "S"
+      - id: "cap-l2-customer-accounts"
+        name: "Customer Account Management"
+        level: 2
+        description: "Manage customer accounts and relationships"
+        strategic_priority: "medium"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-customer"
+        key_applications: []
+        gaps:
+          - "Account hierarchy not yet defined"
+        investment_required: "S"
+
+  - id: "cap-billing"
+    name: "Billing and Accounts Receivable"
+    level: 1
+    description: "Generate bills, manage invoicing, and process payments"
+    strategic_priority: "high"
+    current_maturity: "initial"
+    target_maturity: "managed"
+    owning_domains:
+      - "domain-billing"
+    tmf_alignment:
+      oda_block: "Billing and Accounts Receivable"
+      confidence: "local_knowledge"
+
+    sub_capabilities:
+      - id: "cap-l2-billing-generation"
+        name: "Billing Generation"
+        level: 2
+        description: "Generate bills from usage and order data"
+        strategic_priority: "high"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-billing"
+        key_applications: []
+        gaps:
+          - "TMF635 Billing API not yet implemented"
+          - "Order event integration not yet established"
+        investment_required: "M"
+      - id: "cap-l2-invoicing"
+        name: "Invoicing"
+        level: 2
+        description: "Generate and send invoices to customers"
+        strategic_priority: "medium"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-billing"
+        key_applications: []
+        gaps:
+          - "Invoicing workflow not yet implemented"
+        investment_required: "S"
+      - id: "cap-l2-payment-processing"
+        name: "Payment Processing"
+        level: 2
+        description: "Process and track payments"
+        strategic_priority: "medium"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: "domain-billing"
+        key_applications: []
+        gaps:
+          - "Payment gateway integration not yet established"
+        investment_required: "S"
+
+heatmap:
+  critical_gaps:
+    - "cap-product"
+    - "cap-order"
+  investment_priorities:
+    - "cap-product"
+    - "cap-order"
+    - "cap-billing"
+    - "cap-customer"
+  mature_capabilities: []

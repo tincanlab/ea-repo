@@ -1,0 +1,24 @@
+﻿interface:
+  display_name: Enterprise Architecture
+  short_description: "Define enterprise architecture with orchestrated specialist prompts."
+  default_prompt: "Define enterprise architecture using agents/sub-agents.yaml and specialist prompts."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "openarchitect"
+      description: "OpenArchitect context platform MCP server"
+      transport: "http"
+      url: "http://localhost:8101/mcp"
+    - type: "mcp"
+      value: "enterprise-graph"
+      description: "Enterprise current-state graph MCP server"
+      transport: "http"
+      url: "http://localhost:8102/mcp"
+      optional: true
+    - type: "mcp"
+      value: "tmf-mcp"
+      description: "TM Forum standards MCP server"
+      transport: "http"
+      url: "http://localhost:8000/mcp"
+      optional: true
+

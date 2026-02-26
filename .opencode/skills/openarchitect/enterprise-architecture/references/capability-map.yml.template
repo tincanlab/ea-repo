@@ -1,0 +1,47 @@
+version: "0.1"
+
+context:
+  workspace_id: ""
+  enterprise_id: ""
+  generated_at: ""
+
+governance_signal:
+  workspace_id: ""  # optional
+  cascade_layer: "enterprise_architecture"  # requirements | enterprise_architecture | solution_architecture | domain_architecture | implementation | unknown
+  cascade_recommendation: "remediation_required"  # ready_for_review | remediation_required | block_advancement
+  remediation_status: "pending"  # none | pending | complete
+  note: ""
+
+# --- Level 1 capabilities (strategic) ---
+capabilities:
+  - id: "cap-l1-example"
+    name: ""
+    level: 1
+    description: ""
+    strategic_priority: "high"  # critical | high | medium | low
+    current_maturity: "initial"  # initial | developing | defined | managed | optimized
+    target_maturity: "defined"
+    owning_domains: []  # domain workspace IDs or names
+    tmf_alignment:
+      oda_block: ""  # ODA functional block
+      confidence: "unverified"  # mcp_verified | local_knowledge | unverified
+
+    # --- Level 2 sub-capabilities (tactical) ---
+    sub_capabilities:
+      - id: "cap-l2-example"
+        name: ""
+        level: 2
+        description: ""
+        strategic_priority: "medium"
+        current_maturity: "initial"
+        target_maturity: "managed"
+        owning_domain: ""
+        key_applications: []  # from portfolio if available
+        gaps: []
+        investment_required: ""  # tshirt: S/M/L/XL
+
+# --- Heatmap summary ---
+heatmap:
+  critical_gaps: []  # cap-IDs where current << target and priority = critical/high
+  investment_priorities: []  # cap-IDs ordered by business value / maturity gap
+  mature_capabilities: []  # cap-IDs at or above target maturity

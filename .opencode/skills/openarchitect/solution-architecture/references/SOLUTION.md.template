@@ -1,0 +1,44 @@
+# SOLUTION
+
+Solution architecture repo entrypoint. Owns the SA baseline and routes domain engagements to domain repos.
+
+## Expected Layout
+
+```text
+SOLUTION.md                                        <- you are here
+AGENTS.md                                          <- repo-specific agent instructions
+VISION.md                                          <- (optional) solution intent and target outcomes
+ROADMAP.md                                         <- (optional) implementation phases
+solution-index.yml                                 <- machine-authoritative scope manifest
+architecture/
+|-- requirements/
+|   `-- requirements.yml                           <- requirements baseline
+|-- solution/
+|   |-- architecture-design.yml                    <- solution architecture baseline
+|   |-- interface-contracts.yml                    <- canonical interfaces
+|   `-- domain-engagements.yml                     <- engagement selector catalog (ENGAGEMENT_ID routing)
+`-- domains/
+    `-- <domain_id>/
+        `-- component-specs.yml                    <- (optional, co-located domain specs)
+```
+
+## Routing
+
+`ENGAGEMENT_ID` -> `domain-engagements.yml` -> `domain_repo_url`
+
+## SA Container Context
+
+When running in an SA container (`OPENARCHITECT_CONTAINER_ROLE=sa`), startup routing can write:
+- `.openarchitect/active-initiative.json`
+
+This file is intended as a stable, machine-readable initiative brief (name/description/objectives) derived from the EA selector catalogs so solution work can stay anchored to the approved initiative context.
+
+## Adjacent Entrypoints
+
+- `ENTERPRISE.md` in the EA repo (upstream portfolio context)
+- `DOMAIN.md` + `AGENTS.md` in each domain repo (downstream domain context; required)
+
+## Scope
+
+- Solution key: `<solution-key>`
+- Owners: SA: `<team>`, Domains: `<domain-list>`

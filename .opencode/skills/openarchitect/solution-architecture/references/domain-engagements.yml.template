@@ -1,0 +1,22 @@
+# SA engagement selector catalog (Git-first, no DB required)
+# Keep this file in SA repo at: architecture/solution/domain-engagements.yml
+# This file models many-to-many routing: one initiative can span many domains,
+# and one domain can participate in many initiatives.
+# domain_id values should reference EA registry:
+#   architecture/enterprise/domain-registry.yml
+
+version: "1.0"
+engagements:
+  - engagement_id: eng-init-bss-modernization-om
+    engagement_uuid: 9bfa4a8b-41df-45e0-bad5-492932e03f6a
+    initiative_id: init-bss-modernization
+    domain_id: om
+    name: BSS Modernization x Order Management
+    domain_repo_url: https://github.com/<github-org>/<domain-repo>
+    tmfc_component_id: TMFC005
+    handoff_ref: solution_tmfc_handover@1.2.0
+    status: active
+    owner: domain-arch-om
+    metadata:
+      priority: high
+      milestone: "2026-Q3"

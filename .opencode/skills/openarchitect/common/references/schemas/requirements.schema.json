@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/requirements.schema.json",
+  "title": "OpenArchitect Requirements Artifact",
+  "type": "object",
+  "required": ["requirements"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "acceptance_criteria", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^req-[a-z0-9][a-z0-9-]*$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "acceptance_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "proposed", "approved", "deprecated"]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

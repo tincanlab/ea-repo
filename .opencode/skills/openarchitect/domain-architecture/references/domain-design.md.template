@@ -1,0 +1,94 @@
+# Domain Architecture: ${DOMAIN_NAME}
+
+## Context Evidence
+
+- **Workspace**: ${WORKSPACE_ID}
+- **Domain**: ${DOMAIN_NAME}
+- **Domain profile**: ${DOMAIN_PROFILE}
+- **SA baseline**: ${SA_ARCHITECTURE_DESIGN_PATH}
+- **Tools used**: ${TOOLS_USED}
+- **Generated**: ${TIMESTAMP}
+
+## Domain Boundary
+
+**Bounded context**: ${BOUNDED_CONTEXT_DESCRIPTION}
+
+**Ubiquitous language**:
+| Term | Definition |
+|---|---|
+| ${TERM} | ${DEFINITION} |
+
+**Anti-corruption layers**:
+| External Domain | Strategy | Interface |
+|---|---|---|
+| ${EXTERNAL_DOMAIN} | ${STRATEGY} | ${INTERFACE_ID} |
+
+## Domain Model
+
+### ${AGGREGATE_NAME} (${AGGREGATE_ID})
+
+**Root entity**: ${ROOT_ENTITY}
+
+**Entities**:
+| Entity | Fields | Storage | SID Alignment |
+|---|---|---|---|
+| ${ENTITY_NAME} | ${KEY_FIELDS} | ${STORAGE_TYPE} | ${SID_ENTITY} |
+
+**Value objects**: ${VALUE_OBJECTS}
+
+**Domain events**:
+| Event ID | Name | Trigger | Payload |
+|---|---|---|---|
+| ${EVT_ID} | ${EVENT_NAME} | ${TRIGGER} | ${PAYLOAD_SUMMARY} |
+
+## Workflows
+
+### ${WORKFLOW_NAME} (${WORKFLOW_ID})
+
+**Type**: ${WORKFLOW_TYPE}
+
+**States**: ${STATE_DIAGRAM_OR_LIST}
+
+**Compensating actions**: ${COMPENSATION_SUMMARY}
+
+**eTOM alignment**: ${ETOM_PROCESS}
+
+## Interface Implementations
+
+### ${INTERFACE_ID}: ${INTERFACE_NAME}
+
+**Component**: ${COMP_ID}
+**Conformance**: ${CONFORMANCE_STATUS}
+
+| Operation | Method | Path | Auth | Rate Limit |
+|---|---|---|---|---|
+| ${OPERATION} | ${METHOD} | ${PATH} | ${AUTH} | ${RATE_LIMIT} |
+
+## TMF Alignment
+
+**Covered APIs**: ${COVERED_APIS}
+**Uncovered APIs**: ${UNCOVERED_APIS}
+**SID Mappings**: ${SID_MAPPINGS}
+
+## Compliance
+
+| Standard | Controls | Notes |
+|---|---|---|
+| ${STANDARD} | ${CONTROLS} | ${NOTES} |
+
+## SA Conformance Report
+
+- **NFR budget fit**: ${NFR_FIT}
+- **Interface conformance**: ${INTERFACE_CONFORMANCE}
+- **Pattern conformance**: ${PATTERN_CONFORMANCE}
+- **Issues**: ${ISSUES}
+
+## Decisions
+
+| ID | Decision | SA Deviation? | Review Required? |
+|---|---|---|---|
+| ${ADR_ID} | ${DECISION} | ${SA_DEVIATION} | ${REVIEW_REQUIRED} |
+
+## Open Questions
+
+- ${OPEN_QUESTION}

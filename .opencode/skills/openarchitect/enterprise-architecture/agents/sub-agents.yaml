@@ -1,0 +1,27 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route enterprise architecture workflow from vision to governance-ready strategic outputs.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: capability_mapping
+    prompt: agents/prompts/capability_mapping.md
+    capabilities:
+      - Map business capabilities, pain points, and target maturity outcomes.
+  - id: target_architecture
+    prompt: agents/prompts/target_architecture.md
+    capabilities:
+      - Define target-state architecture principles, platforms, and boundaries.
+  - id: governance_alignment
+    prompt: agents/prompts/governance_alignment.md
+    capabilities:
+      - Define policy, standards, and decision gates for architecture governance.
+  - id: portfolio_roadmap
+    prompt: agents/prompts/portfolio_roadmap.md
+    capabilities:
+      - Build portfolio transition roadmap and sequencing across initiatives.
+  - id: ea_validation
+    prompt: agents/prompts/ea_validation.md
+    capabilities:
+      - Validate feasibility, consistency, and strategic alignment across EA artifacts.

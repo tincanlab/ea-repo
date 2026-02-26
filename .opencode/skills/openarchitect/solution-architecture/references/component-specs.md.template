@@ -1,0 +1,56 @@
+# Component Specifications: ${DOMAIN_NAME}
+
+## Context Evidence
+
+- **Workspace**: ${WORKSPACE_ID}
+- **Requirements baseline**: ${REQUIREMENTS_PATH}
+- **Tools used**: ${TOOLS_USED}
+- **Generated**: ${TIMESTAMP}
+
+## Domain Boundary
+
+${DOMAIN_DESCRIPTION}
+
+## Components
+
+### ${COMPONENT_ID}: ${COMPONENT_NAME}
+
+**Description**: ${COMPONENT_DESCRIPTION}
+
+**Code Paths**:
+- ${CODE_PATH}
+
+**Interfaces**:
+| Interface ID | Type | Direction | Notes |
+|---|---|---|---|
+| ${IFC_ID} | ${TYPE} | ${DIRECTION} | ${NOTES} |
+
+**Patterns**:
+- Integration: ${INTEGRATION_PATTERN}
+- Consistency: ${CONSISTENCY_PATTERN}
+- Resiliency: ${RESILIENCY_PATTERN}
+
+**NFR Budget**:
+| Metric | Target | Measurement |
+|---|---|---|
+| Availability | ${AVAILABILITY} | ${MEASUREMENT} |
+| Latency (p95) | ${LATENCY_P95} | ${MEASUREMENT} |
+| Throughput | ${THROUGHPUT} | ${MEASUREMENT} |
+
+**Dependencies**:
+- ${DEPENDENCY}
+
+**TM Forum Alignment**:
+- ODA Component: ${ODA_COMPONENT} (${CONFIDENCE})
+- eTOM Process: ${ETOM_PROCESS} (${CONFIDENCE})
+- Open APIs: ${TMF_API_IDS}
+
+## Decisions
+
+| ID | Decision | Rationale | Alternatives Considered |
+|---|---|---|---|
+| ${ADR_ID} | ${DECISION} | ${RATIONALE} | ${ALTERNATIVES} |
+
+## Open Questions
+
+- ${OPEN_QUESTION}

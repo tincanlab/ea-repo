@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/component-specs.schema.json",
+  "title": "OpenArchitect Component Specs Artifact",
+  "type": "object",
+  "required": ["components"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "code_paths", "interfaces", "patterns"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^comp-[a-z0-9][a-z0-9-]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "code_paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "interfaces": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^ifc-[a-z0-9][a-z0-9-]*$"
+            }
+          },
+          "patterns": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,12 @@
+﻿interface:
+  display_name: Constraint Validation
+  short_description: "Validate constraints with orchestrated specialist prompts."
+  default_prompt: "Validate architecture constraints using agents/sub-agents.yaml and specialist prompts."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "enterprise-graph"
+      description: "Enterprise graph MCP server"
+      transport: "http"
+      url: "http://localhost:8102/mcp"
+

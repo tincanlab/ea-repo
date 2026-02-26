@@ -1,0 +1,19 @@
+version: "1.0"
+domain_key: "<domain_key>"
+
+requirements:
+  - id: "req-<kebab>"
+    parent_requirement_ids:
+      - "req-<parent-kebab>"
+    text: "<domain-specific requirement text>"
+    acceptance_criteria:
+      - "<testable criteria>"
+    status: "draft"
+
+  - id: "req-<kebab>"
+    new_scope_reason: "<why this is new scope (no parent SA requirement)>"
+    text: "<domain-specific requirement text>"
+    acceptance_criteria:
+      - "<testable criteria>"
+    status: "draft"
+

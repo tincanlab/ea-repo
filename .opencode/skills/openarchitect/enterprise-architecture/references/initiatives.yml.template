@@ -1,0 +1,31 @@
+# EA selector catalog (Git-first, no DB required)
+# Keep this file in EA repo at: architecture/portfolio/initiatives.yml
+# Reference this file from ENTERPRISE.md so SA container routing is deterministic.
+# Recommended: generate this file from architecture/portfolio/initiative-pipeline.yml
+# using <skills_root>/enterprise-architecture/scripts/generate_initiatives_selector.py.
+#
+# Operational rule:
+# - This catalog may retain historical initiatives for traceability (for example `completed`/`archived`).
+# - Startup routing must be fail-closed and should route only when `status: active`.
+# - Initiatives without a real `solution_repo_url` should remain in the pipeline source artifact and must not be published here.
+
+version: "1.0"
+
+initiatives:
+  - initiative_id: init-bss-modernization
+    name: BSS Modernization
+    solution_repo_url: https://github.com/<github-org>/<solution-repo>
+    status: active
+    owner: sa-team-a
+    metadata:
+      priority: high
+      target_release: "2026-Q3"
+
+  # Example historical (not routable by default)
+  - initiative_id: init-legacy-crm-sunset
+    name: Legacy CRM Sunset
+    solution_repo_url: https://github.com/<github-org>/<solution-repo-crm-sunset>
+    status: completed
+    owner: sa-team-b
+    metadata:
+      priority: medium

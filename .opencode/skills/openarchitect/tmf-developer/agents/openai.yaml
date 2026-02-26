@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "TMF Developer"
+  short_description: "Build TMF services with orchestrated specialist prompts."
+  default_prompt: "Build TMF service implementation using agents/sub-agents.yaml and specialist prompts."
+

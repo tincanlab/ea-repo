@@ -1,0 +1,25 @@
+workspace_id: <workspace-id>
+request_id: <repo-req-yyyymmdd-hhmmss>
+requested_at_utc: <iso8601>
+requested_by: <sa-user-or-agent>
+source_artifacts:
+  - kind: repo_plan
+    git_path: architecture/solution/repo-plan.yml
+repos_requested:
+  - repo_key: <stable-key>
+    owner: <github-owner>
+    name: <repo-name>
+    visibility: private
+    default_for_workspace: false
+    description: <short description>
+    purpose: <design|domain|api|infra|other>
+    reason: <new-initiative|ownership-boundary|compliance|other>
+approval:
+  state: draft
+  approved_by: null
+  approved_at_utc: null
+execution:
+  state: not_started
+  created_repos: []
+  failed_repos: []
+notes: <optional notes>

@@ -1,0 +1,41 @@
+# Requirements Baseline
+
+## Problem Statement
+
+- 
+
+## Goals (Measurable)
+
+- 
+
+## Scope
+
+**In scope**
+- 
+
+**Out of scope**
+- 
+
+## Constraints / Dependencies
+
+- 
+
+## Context Evidence
+
+- Analysis mode: `strict | balanced | deep`
+- Run mode: `manual | task_worker`
+- Workspace ID (optional): `<workspace_id_or_not_used>`
+- Tool capabilities used:
+  - Requirements workflow: `<status/read/write capabilities>`
+  - TMF enrichment (if used): `<etom|hierarchy|oda|functional|sid|openapi>`
+- Produced artifacts:
+  - `architecture/requirements/requirements.md`
+  - `architecture/requirements/requirements.yml`
+
+## Non-Functional Requirements (NFRs)
+
+- 
+
+## Requirements Summary
+
+- See `architecture/requirements/requirements.yml` for canonical, traceable requirements with stable IDs and acceptance criteria.

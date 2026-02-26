@@ -1,0 +1,36 @@
+# VISION (Solution)
+
+Owner: Solution Architect (SA)
+
+Purpose: define the intended future state and success outcomes for this solution.
+This document is intentionally stable and low-churn; execution detail belongs in `ROADMAP.md`.
+
+## Why This Solution Exists
+
+- Business problem: `<problem statement>`
+- Target users/stakeholders: `<who benefits>`
+- Value outcome: `<what changes if successful>`
+
+## Target Future State
+
+- Outcome 1: `<measurable outcome>`
+- Outcome 2: `<measurable outcome>`
+- Outcome 3: `<measurable outcome>`
+
+## Scope Boundaries
+
+- In scope: `<what this solution will do>`
+- Out of scope: `<what this solution will not do>`
+
+## Principles and Non-Negotiables
+
+- Principle 1: `<statement>`
+- Principle 2: `<statement>`
+- Principle 3: `<statement>`
+
+## Alignment
+
+- Enterprise alignment: `<link to ENTERPRISE.md and/or EA VISION.md>`
+- Roadmap link: `ROADMAP.md`
+- Machine scope link: `solution-index.yml`
+

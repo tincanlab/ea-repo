@@ -1,0 +1,50 @@
+# ROADMAP (Enterprise)
+
+Owner: Enterprise Architect (EA)
+
+Purpose: a single enterprise roadmap that aggregates solution roadmaps and reconciles cross-solution dependencies and constraints.
+
+Authoring contract:
+- Humans edit `ROADMAP.md` only.
+- Tools/skills generate `ROADMAP.yml` from this file (do not hand-edit `ROADMAP.yml`).
+
+## Scope
+
+- Enterprise key: `<enterprise_key>`
+- Time horizon: `<e.g. current year + next year>`
+- Solution sources: solution repo `ROADMAP.md` / optional `ROADMAP.yml`
+- Provenance evidence: solution/domain repo `inputs/` snapshots (when needed)
+
+## Current Status
+
+- Health: `<green|yellow|red>`
+- Current theme: `<theme>`
+- Next theme: `<theme>`
+- Top enterprise risks:
+  - `<risk>`
+  - `<risk>`
+
+## Roadmap
+
+### Themes / Initiatives
+
+- `<initiative-1>`: `<goal>`: `<target>`
+- `<initiative-2>`: `<goal>`: `<target>`
+
+### Milestones
+
+- `<milestone-1>`: `<date/iteration>`: `<goal>`
+- `<milestone-2>`: `<date/iteration>`: `<goal>`
+
+### Cross-Solution Dependencies
+
+- `<solution-a>` depends on `<solution-b>`: `<what/why>`: `<target date>`
+
+### Solution Roll-Up (Links)
+
+- `<solution-a>`: `<solution-repo-url>/blob/<branch-or-commit>/ROADMAP.md` (and optional `ROADMAP.yml`)
+- `<solution-b>`: `<solution-repo-url>/blob/<branch-or-commit>/ROADMAP.md` (and optional `ROADMAP.yml`)
+
+## Decision Log
+
+- `<date>`: `<decision>`: `<link to ADR or PR>`

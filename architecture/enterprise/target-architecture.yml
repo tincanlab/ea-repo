@@ -1,0 +1,262 @@
+version: "0.1"
+
+context:
+  workspace_id: ""
+  workspace_kind: "enterprise"
+  enterprise_id: "enterprise-01"
+  environment: "development"
+  cascade_state:
+    requirements: "not_started"
+    enterprise_architecture: "draft"
+  topology_snapshot:
+    child_domains: []
+    child_projects: []
+  current_state_grounded: false
+  generated_at: "2026-02-21"
+
+business_strategy:
+  vision: "Demonstrate OpenArchitect EA workflow with TM Forum-aligned digital service provider architecture"
+  mission: "Build a cloud-native, API-first enterprise platform enabling scalable digital product catalog and order-to-activate workflows with TM Forum Open API conformance"
+  strategic_pillars:
+    - "TM Forum ODA alignment for domain boundaries"
+    - "Cloud-native, API-first architecture"
+    - "Event-driven cross-domain integration"
+    - "Automated order-to-activate workflows"
+  growth_targets:
+    - "Launch TMF620 Product Catalog API by 2026-Q2"
+    - "Launch TMF629 Order Management API by 2026-Q3"
+    - "Integrate TMF635 Billing by 2026-Q4"
+  digital_transformation_objectives:
+    - "Migrate from legacy systems to ODA-aligned platform"
+    - "Enable self-service product catalog"
+    - "Automate order fulfillment"
+  investment_horizon: "3-year plan 2026-2028"
+  build_buy_preference: "pragmatic"
+  competitive_positioning: "TM Forum Open API compliant digital service provider platform"
+
+strategic_context:
+  industry: "Telecommunications / Digital Services"
+  market_position: "Digital service provider platform for TM Forum Open API demonstration"
+  strategic_priorities:
+    - "Establish TMF620 Product Catalog Management capability"
+    - "Enable TMF629 Order Management and fulfillment"
+    - "Integrate TMF635 Billing and accounts receivable"
+    - "Demonstrate end-to-end product-to-bill workflow"
+  regulatory_mandates:
+    - "TM Forum Open API conformance"
+  technology_context: "Cloud-native platform with Kubernetes deployment, API Gateway integration, event-driven messaging"
+
+principles:
+  - id: "prin-001"
+    name: "TM Forum ODA Alignment"
+    statement: "Domain boundaries must align with TM Forum Open Digital Architecture functional components"
+    rationale: "Ensures industry-standard decomposition and TMF Open API compatibility"
+    implications:
+      - "Product Catalog domain aligns with TMF620 ODA Component"
+      - "Order Management domain aligns with TMF629 ODA Component"
+      - "Billing domain aligns with TMF635 ODA Component"
+  - id: "prin-002"
+    name: "API-First Design"
+    statement: "All services expose RESTful APIs following TM Forum Open API specifications"
+    rationale: "Enables decoupled integration and standard client contracts"
+    implications:
+      - "No direct database access across domain boundaries"
+      - "API Gateway as single entry point for external consumers"
+      - "OpenAPI specification versioning and deprecation policy"
+  - id: "prin-003"
+    name: "Event-Driven Integration"
+    statement: "Cross-domain workflows use event-driven messaging for loose coupling"
+    rationale: "Enables real-time orchestration and scales better than synchronous calls"
+    implications:
+      - "Use event backbone for order fulfillment and billing triggers"
+      - "Domain events published for state changes"
+      - "Saga pattern for distributed transactions"
+  - id: "prin-004"
+    name: "Cloud-Native Deployment"
+    statement: "All services deployed as containerized applications on Kubernetes"
+    rationale: "Scalability, resilience, and operational efficiency"
+    implications:
+      - "Stateless microservices with externalized state"
+      - "Zero-downtime deployments with rolling updates"
+      - "Observability with centralized logging and metrics"
+  - id: "prin-005"
+    name: "Fail-Open Data Access"
+    statement: "Data ownership stays within domain boundaries; access via APIs only"
+    rationale: "Prevents tight coupling and enables independent domain evolution"
+    implications:
+      - "Each domain owns its data schema"
+      - "Cross-domain joins prohibited at database layer"
+      - "API-based integration for data sharing"
+
+domains:
+  - id: "domain-product"
+    name: "Product Catalog"
+    description: "Product catalog and offer management following TMF620 Product Catalog Management API"
+    workspace_id: ""
+    boundary: "Owns product catalog, offers, product specifications, and pricing"
+    key_capabilities:
+      - "cap-product"
+    interdependencies:
+      - target_domain: "domain-order"
+        interface_type: "api"
+        description: "Provides product catalog queries for order validation"
+      - target_domain: "domain-billing"
+        interface_type: "event"
+        description: "Publishes product pricing updates to billing domain"
+  - id: "domain-order"
+    name: "Order Management"
+    description: "Order management and fulfillment following TMF629 Order Management API"
+    workspace_id: ""
+    boundary: "Owns order lifecycle, fulfillment, and orchestration"
+    key_capabilities:
+      - "cap-order"
+    interdependencies:
+      - target_domain: "domain-product"
+        interface_type: "api"
+        description: "Queries product catalog for validation during order creation"
+      - target_domain: "domain-billing"
+        interface_type: "event"
+        description: "Publishes order completion events for billing triggers"
+  - id: "domain-customer"
+    name: "Customer Management"
+    description: "Customer and party profile management following TMF622 Customer Party Management API"
+    workspace_id: ""
+    boundary: "Owns customer profiles, party data, and customer accounts"
+    key_capabilities:
+      - "cap-customer"
+    interdependencies:
+      - target_domain: "domain-order"
+        interface_type: "api"
+        description: "Provides customer profile validation for orders"
+  - id: "domain-billing"
+    name: "Billing"
+    description: "Billing and accounts receivable following TMF635 Billing and Accounts Receivable API"
+    workspace_id: ""
+    boundary: "Owns billing, invoicing, and payment processing"
+    key_capabilities:
+      - "cap-billing"
+    interdependencies:
+      - target_domain: "domain-order"
+        interface_type: "event"
+        description: "Subscribes to order completion events for billing"
+      - target_domain: "domain-customer"
+        interface_type: "api"
+        description: "Queries customer accounts for billing"
+
+technology_strategy:
+  cloud_strategy: "cloud-first"
+  preferred_platforms:
+    - "Kubernetes for container orchestration"
+    - "PostgreSQL for relational data"
+    - "Kafka/RabbitMQ for event messaging"
+    - "Prometheus/Grafana for observability"
+  build_buy_partner:
+    - capability: "Product Catalog API"
+      decision: "build"
+      rationale: "TMF620 reference implementation available; custom build demonstrates TMF alignment"
+    - capability: "Order Management API"
+      decision: "build"
+      rationale: "TMF629 reference implementation available; domain-specific orchestration logic"
+    - capability: "Billing API"
+      decision: "build"
+      rationale: "TMF635 reference implementation available; demonstrates integration workflow"
+  integration_strategy:
+    pattern: "hybrid"
+    api_management: "API Gateway with OpenAPI specification validation"
+    event_platform: "Kafka cluster for cross-domain event backbone"
+
+security_architecture:
+  identity_model: "OAuth 2.0 with JWT tokens for API authentication"
+  data_classification_tiers:
+    - tier: "restricted"
+      controls:
+        - "Encryption at rest and in transit"
+        - "Role-based access control (RBAC)"
+        - "Audit logging for all access"
+    - tier: "confidential"
+      controls:
+        - "Encryption at rest"
+        - "API-based access only"
+        - "Audit logging"
+    - tier: "internal"
+      controls:
+        - "Service-to-service authentication"
+        - "Network-level isolation"
+  compliance_controls:
+    - standard: "TM Forum Open API"
+      controls:
+        - "API conformance to TMF specifications"
+        - "OpenAPI specification validation"
+        - "TMF certification testing"
+
+nfr_envelopes:
+  availability_tiers:
+    - tier: "platinum"
+      target: "99.99%"
+      domains:
+        - "domain-product"
+    - tier: "gold"
+      target: "99.9%"
+      domains:
+        - "domain-order"
+        - "domain-customer"
+        - "domain-billing"
+  latency_classes:
+    - class: "real-time"
+      target_ms: 100
+      domains:
+        - "domain-product"
+    - class: "interactive"
+      target_ms: 500
+      domains:
+        - "domain-order"
+        - "domain-customer"
+    - class: "batch"
+      target_ms: 5000
+      domains:
+        - "domain-billing"
+  security_classes:
+    - class: "restricted"
+      controls:
+        - "Customer PII data"
+        - "Billing and payment information"
+    - class: "confidential"
+      controls:
+        - "Product pricing data"
+        - "Order history"
+    - class: "internal"
+      controls:
+        - "Product catalog metadata"
+        - "Configuration data"
+  cost_envelopes:
+    - domain: "domain-product"
+      budget_allocation: "S"
+    - domain: "domain-order"
+      budget_allocation: "M"
+    - domain: "domain-customer"
+      budget_allocation: "S"
+    - domain: "domain-billing"
+      budget_allocation: "M"
+
+tmf_alignment:
+  oda_domains:
+    - name: "Product Catalog Management"
+      confidence: "local_knowledge"
+    - name: "Order Management"
+      confidence: "local_knowledge"
+    - name: "Customer Party Management"
+      confidence: "local_knowledge"
+    - name: "Billing and Accounts Receivable"
+      confidence: "local_knowledge"
+  etom_processes:
+    - ref: "Fulfillment"
+      confidence: "local_knowledge"
+    - ref: "Product"
+      confidence: "local_knowledge"
+    - ref: "Customer"
+      confidence: "local_knowledge"
+    - ref: "Bill"
+      confidence: "local_knowledge"
+  coverage_summary: "Demo scenario defines 4 TMF-aligned domains with planned TMF Open API implementations"
+
+decisions: []

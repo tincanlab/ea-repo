@@ -1,0 +1,305 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openarchitect.dev/schemas/app-topology.schema.json",
+  "title": "OpenArchitect Application Topology Artifact",
+  "type": "object",
+  "required": ["enterprise_id", "environment", "generated_at", "apps"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "enterprise_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "environment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "apps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/app"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "declared_assertions": {
+      "$ref": "#/$defs/declared_assertions"
+    },
+    "next_questions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["kind", "scope"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_note": {
+          "type": "string"
+        },
+        "authority_note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "owner": {
+      "type": "object",
+      "required": ["team", "oncall"],
+      "properties": {
+        "team": {
+          "type": ["string", "null"]
+        },
+        "oncall": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["nodes", "edges", "notes"],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "topology_ref": {
+      "type": "object",
+      "required": ["ref", "source_class", "state"],
+      "properties": {
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_class": {
+          "type": "string",
+          "enum": [
+            "observed_raw",
+            "declared_internal_unobserved",
+            "declared_external"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "observed",
+            "proposed",
+            "approved",
+            "rejected",
+            "superseded"
+          ]
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_class": {
+                "enum": [
+                  "declared_internal_unobserved",
+                  "declared_external"
+                ]
+              }
+            },
+            "required": ["source_class"]
+          },
+          "then": {
+            "required": ["reason_code"]
+          }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "topology": {
+      "type": "object",
+      "required": [
+        "entry_points",
+        "runtimes",
+        "data_stores",
+        "external_dependencies"
+      ],
+      "properties": {
+        "entry_points": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/topology_ref"
+          }
+        },
+        "runtimes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/topology_ref"
+          }
+        },
+        "data_stores": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/topology_ref"
+          }
+        },
+        "external_dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/topology_ref"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "app": {
+      "type": "object",
+      "required": [
+        "app_id",
+        "name",
+        "owner",
+        "criticality",
+        "evidence",
+        "topology",
+        "gaps"
+      ],
+      "properties": {
+        "app_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner": {
+          "$ref": "#/$defs/owner"
+        },
+        "criticality": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low", "unknown"]
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        },
+        "topology": {
+          "$ref": "#/$defs/topology"
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "declared_assertions": {
+      "type": "object",
+      "required": ["approval_policy", "validity_policy", "review"],
+      "properties": {
+        "approval_policy": {
+          "type": "object",
+          "required": ["domain_architect_scope", "arch_scope"],
+          "properties": {
+            "domain_architect_scope": {
+              "type": "string",
+              "minLength": 1
+            },
+            "arch_scope": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "validity_policy": {
+          "type": "object",
+          "required": ["expires_automatically", "requires_manual_change"],
+          "properties": {
+            "expires_automatically": {
+              "type": "boolean"
+            },
+            "requires_manual_change": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        },
+        "review": {
+          "type": "object",
+          "required": ["last_reviewed_at", "next_review_due_at"],
+          "properties": {
+            "last_reviewed_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "next_review_due_at": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

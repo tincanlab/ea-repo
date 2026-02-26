@@ -1,0 +1,22 @@
+request_id: <repo-req-yyyymmdd-hhmmss>
+executed_at_utc: <iso8601>
+executed_by: <user-or-agent>
+execution:
+  state: <completed|partial_failure|failed|blocked_no_credentials>
+created_repos:
+  - owner: <github-owner>
+    name: <repo-name>
+    html_url: <https://github.com/owner/name>
+mapped_repos:
+  - owner: <github-owner>
+    name: <repo-name>
+    repo_url: <https://github.com/owner/name>
+    is_default: false
+failures:
+  - owner: <github-owner>
+    name: <repo-name>
+    step: <check|create|map>
+    error: <error text>
+evidence:
+  github_checks: []
+  workspace_repo_mappings: []

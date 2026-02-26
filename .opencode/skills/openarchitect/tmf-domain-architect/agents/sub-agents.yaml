@@ -1,0 +1,27 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route TMF component design workflow across multiple OpenAPI specs and shared entities.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: api_inventory_analysis
+    prompt: agents/prompts/api_inventory_analysis.md
+    capabilities:
+      - Analyze TMF API set, overlaps, and version compatibility.
+  - id: canonical_entity_design
+    prompt: agents/prompts/canonical_entity_design.md
+    capabilities:
+      - Define shared canonical entities and ownership per API boundary.
+  - id: component_boundary_design
+    prompt: agents/prompts/component_boundary_design.md
+    capabilities:
+      - Design ODA component boundaries, responsibilities, and dependencies.
+  - id: shared_data_strategy
+    prompt: agents/prompts/shared_data_strategy.md
+    capabilities:
+      - Specify shared database strategy, consistency, and migration controls.
+  - id: tmf_design_validation
+    prompt: agents/prompts/tmf_design_validation.md
+    capabilities:
+      - Validate TMF alignment and implementation readiness.

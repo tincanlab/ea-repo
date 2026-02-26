@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Domain Requirements",
+  "type": "object",
+  "required": ["version", "domain_key", "requirements"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string" },
+    "domain_key": { "type": "string", "minLength": 1 },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "text", "acceptance_criteria", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^req-[a-z0-9][a-z0-9-]*$"
+          },
+          "parent_requirement_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^req-[a-z0-9][a-z0-9-]*$"
+            }
+          },
+          "new_scope_reason": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "acceptance_criteria": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "proposed", "approved", "rejected"]
+          }
+        },
+        "anyOf": [
+          { "required": ["parent_requirement_ids"] },
+          { "required": ["new_scope_reason"] }
+        ]
+      }
+    }
+  }
+}
+

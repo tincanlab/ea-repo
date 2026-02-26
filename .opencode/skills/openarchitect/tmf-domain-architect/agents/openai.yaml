@@ -1,0 +1,5 @@
+﻿interface:
+  display_name: "TMF Domain Architect"
+  short_description: "Design multi-API TMF components with orchestrated specialist prompts."
+  default_prompt: "Design TMF component architecture using agents/sub-agents.yaml and specialist prompts."
+

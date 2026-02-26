@@ -1,0 +1,60 @@
+# Interface Contracts
+
+## Context Evidence
+
+- **Workspace**: ${WORKSPACE_ID}
+- **Architecture design**: ${ARCHITECTURE_DESIGN_PATH}
+- **Tools used**: ${TOOLS_USED}
+- **Generated**: ${TIMESTAMP}
+
+## Summary
+
+${INTERFACE_SUMMARY}
+
+## API Interfaces
+
+### ${IFC_ID}: ${INTERFACE_NAME}
+
+**Owner**: ${OWNER_COMPONENT_ID}
+**Version**: ${VERSION}
+**Spec**: ${SPEC_PATH}
+
+| Method | Path | Description | Auth | Rate Limit |
+|---|---|---|---|---|
+| ${METHOD} | ${PATH} | ${DESCRIPTION} | ${AUTH} | ${RATE_LIMIT} |
+
+**Request Schema**: ${REQUEST_SCHEMA_REF}
+**Response Schema**: ${RESPONSE_SCHEMA_REF}
+
+**TMF Alignment**: ${TMF_API_ID} (${CONFIDENCE})
+
+**SLO**: latency p95 < ${LATENCY_MS}ms, availability ${AVAILABILITY}
+
+## Event Interfaces
+
+### ${IFC_ID}: ${EVENT_NAME}
+
+**Owner**: ${OWNER_COMPONENT_ID}
+**Version**: ${VERSION}
+**Topic**: ${TOPIC}
+**Schema**: ${SCHEMA_FORMAT} (${SCHEMA_PATH})
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| ${FIELD} | ${TYPE} | ${REQUIRED} | ${DESCRIPTION} |
+
+**Ordering**: ${ORDERING_GUARANTEE}
+**Retention**: ${RETENTION_POLICY}
+**Idempotency**: ${IDEMPOTENCY_KEY}
+
+## Governance
+
+- **Versioning**: ${VERSIONING_POLICY}
+- **Deprecation**: ${DEPRECATION_WINDOW}
+- **Breaking changes**: ${BREAKING_CHANGE_POLICY}
+
+## Decisions
+
+| ID | Decision | Rationale |
+|---|---|---|
+| ${ADR_ID} | ${DECISION} | ${RATIONALE} |

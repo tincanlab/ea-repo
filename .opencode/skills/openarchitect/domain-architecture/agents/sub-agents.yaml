@@ -1,0 +1,27 @@
+﻿orchestrator:
+  id: orchestrator
+  prompt: agents/prompts/orchestrator.md
+  capabilities:
+    - Route domain architecture workflow from SA inputs to domain-ready design package.
+  routing_rule: one-specialist-per-turn
+specialists:
+  - id: domain_modeling
+    prompt: agents/prompts/domain_modeling.md
+    capabilities:
+      - Define canonical domain entities, aggregates, ownership boundaries, and lifecycle states.
+  - id: workflow_design
+    prompt: agents/prompts/workflow_design.md
+    capabilities:
+      - Design domain workflows, state transitions, and exception handling.
+  - id: integration_design
+    prompt: agents/prompts/integration_design.md
+    capabilities:
+      - Specify domain integration contracts and external dependency patterns.
+  - id: data_design
+    prompt: agents/prompts/data_design.md
+    capabilities:
+      - Produce storage, schema, and data consistency strategy for domain scope.
+  - id: domain_validation
+    prompt: agents/prompts/domain_validation.md
+    capabilities:
+      - Validate domain design completeness and cross-artifact consistency.
