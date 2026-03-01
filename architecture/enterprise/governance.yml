@@ -1,0 +1,104 @@
+version: "0.1"
+
+context:
+  workspace_id: ""
+  enterprise_id: "enterprise-01"
+  generated_at: "2026-02-21"
+
+architecture_review_board:
+  structure: "Enterprise Architecture Review Board (EARB) with executive sponsorship"
+  cadence: "Bi-weekly reviews for design approval, monthly for strategy review"
+  members:
+    - "Enterprise Architect (Chair)"
+    - "Domain Architects (Product, Order, Customer, Billing)"
+    - "CTO / VP Engineering"
+    - "Product Owners from each domain"
+
+review_gates:
+  - id: "gate-001"
+    name: "Enterprise Architecture Approval"
+    description: "EA must approve all target architecture changes, domain boundaries, and technology strategy decisions"
+    approval_required: true
+    waivers_allowed: false
+  - id: "gate-002"
+    name: "Solution Architecture Review"
+    description: "EA must review and approve all solution architecture designs before implementation"
+    approval_required: true
+    waivers_allowed: true
+  - id: "gate-003"
+    name: "TMF Open API Conformance"
+    description: "All APIs must demonstrate TMF Open API conformance before production deployment"
+    approval_required: true
+    waivers_allowed: false
+  - id: "gate-004"
+    name: "NFR Compliance"
+    description: "All services must meet NFR envelopes defined in target architecture before production"
+    approval_required: true
+    waivers_allowed: true
+  - id: "gate-005"
+    name: "Security and Privacy Review"
+    description: "All solutions must pass security and privacy review before production deployment"
+    approval_required: true
+    waivers_allowed: false
+
+waiver_process:
+  request_workflow: "Waiver requests must be submitted via EARB with documented justification, risk assessment, and mitigation plan. Exceptions require executive sponsor approval."
+  evaluation_criteria: "Technical feasibility, business impact, security risk, regulatory compliance, and alignment with TMF standards"
+  tracking_mechanism: "All waivers tracked in EARB meeting minutes with expiration dates and review schedules"
+
+standards:
+  technology_standards:
+    - standard: "Kubernetes"
+      category: "Platform"
+      requirement: "All services must be deployable on Kubernetes with Helm charts"
+    - standard: "PostgreSQL"
+      category: "Database"
+      requirement: "Relational data storage using PostgreSQL 14+"
+    - standard: "Python / FastAPI"
+      category: "Runtime"
+      requirement: "TMF APIs implemented using Python 3.11+ and FastAPI framework"
+    - standard: "OpenAPI 3.0"
+      category: "API Specification"
+      requirement: "All APIs documented with OpenAPI 3.0 specification"
+  naming_conventions:
+    - convention: "Domain IDs"
+      pattern: "domain-<kebab-case>"
+      examples:
+        - "domain-product"
+        - "domain-order"
+    - convention: "Capability IDs"
+      pattern: "cap-<kebab-case>"
+      examples:
+        - "cap-product"
+        - "cap-order"
+    - convention: "API Paths"
+      pattern: "/tmf620/{resource} or /tmf629/{resource}"
+      examples:
+        - "/tmf620/product"
+        - "/tmf629/order"
+  security_policies:
+    - policy: "Authentication"
+      requirement: "OAuth 2.0 with JWT tokens for all API access"
+    - policy: "Authorization"
+      requirement: "Role-based access control (RBAC) with least privilege principle"
+    - policy: "Data Encryption"
+      requirement: "Encryption at rest (AES-256) and in transit (TLS 1.3)"
+    - policy: "Audit Logging"
+      requirement: "All API access logged with timestamps, user identity, and actions performed"
+
+compliance_controls:
+  - standard: "TM Forum Open API"
+    controls:
+      - "API conformance to TMF specifications (TMF620, TMF629, TMF622, TMF635)"
+      - "OpenAPI specification validation using TMF test suites"
+      - "TMF certification testing for production deployment"
+  - standard: "Data Privacy"
+    controls:
+      - "PII data classification per security tiers"
+      - "Data minimization principle - collect only necessary data"
+      - "Customer data retention policies defined and enforced"
+  - standard: "Security"
+    controls:
+      - "Regular security reviews and penetration testing"
+      - "Vulnerability scanning in CI/CD pipeline"
+      - "Security incident response process defined"

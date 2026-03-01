@@ -1,0 +1,40 @@
+version: '1.0'
+initiatives:
+- initiative_id: init-bopis
+  solution_repo_url: https://github.com/tincanlab/solution-bopis
+  status: active
+  name: Buy Online, Pick Up In Store
+  owner: sa-team-commerce
+  metadata:
+    stage: discovery
+    t_shirt_size: m
+    roi_band: medium
+    business_sponsor: vp-retail
+    pm_owner: pm-team-retail
+    it_owner: sa-team-commerce
+    description: Enable customers to purchase online and pick up in store, with inventory
+      visibility and fulfillment optimization.
+    objectives:
+    - Launch BOPIS capability across 50% of stores
+    - Integrate online inventory with in-store fulfillment
+    - Reduce pickup wait time to under 5 minutes
+- initiative_id: init-bss-modernization
+  solution_repo_url: https://github.com/<github-org>/<solution-repo>
+  status: active
+  name: BSS Modernization
+  owner: sa-team-a
+  metadata:
+    stage: approved_for_delivery
+    t_shirt_size: l
+    roi_band: high
+    business_sponsor: vp-digital
+    pm_owner: pm-team-a
+    it_owner: sa-team-a
+    business_case_id: bc-2026-014
+    description: Modernize legacy BSS stack and retire fragmented point solutions.
+    objectives:
+    - Reduce order-to-activate lead time by 30%.
+    - Consolidate customer/product/order APIs behind TMF-aligned contracts.
+    - Lower run cost by decommissioning duplicate legacy platforms.
+    target_release: 2026-Q3
+    review_board: enterprise-portfolio-board

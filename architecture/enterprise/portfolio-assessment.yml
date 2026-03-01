@@ -1,0 +1,46 @@
+version: "0.1"
+
+context:
+  workspace_id: ""
+  enterprise_id: "enterprise-01"
+  generated_at: "2026-02-21"
+
+applications: []
+
+portfolio_summary:
+  total_applications: 0
+  health_distribution:
+    green: 0
+    amber: 0
+    red: 0
+  recommendation_distribution:
+    invest: 0
+    maintain: 0
+    migrate: 0
+    retire: 0
+
+consolidation_opportunities:
+  - opportunity: "Product Catalog Service"
+    current_state: "No implementation"
+    recommendation: "Build new TMF620-compliant service"
+    justification: "Foundation for order management and billing integration"
+    priority: "high"
+    target_domain: "domain-product"
+  - opportunity: "Order Management Service"
+    current_state: "No implementation"
+    recommendation: "Build new TMF629-compliant service"
+    justification: "Orchestrates order-to-activate workflow"
+    priority: "high"
+    target_domain: "domain-order"
+  - opportunity: "Customer Management Service"
+    current_state: "No implementation"
+    recommendation: "Build new TMF622-compliant service"
+    justification: "Customer profile foundation for orders and billing"
+    priority: "medium"
+    target_domain: "domain-customer"
+  - opportunity: "Billing Service"
+    current_state: "No implementation"
+    recommendation: "Build new TMF635-compliant service"
+    justification: "Completes product-to-bill workflow"
+    priority: "medium"
+    target_domain: "domain-billing"

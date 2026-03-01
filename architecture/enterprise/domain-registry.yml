@@ -1,0 +1,703 @@
+version: '1.0'
+enterprise_id: enterprise-01
+domains:
+- domain_id: tmfc001
+  name: TMFC001-ProductCatalogManagement
+  owner: domain-arch-core-commerce
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc001
+    name: Product catalog management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC001
+    oda_component_name: ProductCatalogManagement
+    functional_block: CoreCommerce
+- domain_id: tmfc002
+  name: TMFC002-ProductOrderCaptureAndValidation
+  owner: domain-arch-core-commerce
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc002
+    name: Product order capture and validation
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC002
+    oda_component_name: ProductOrderCaptureAndValidation
+    functional_block: CoreCommerce
+- domain_id: tmfc003
+  name: TMFC003-ProductOrderDeliveryOrchestrationAndManagement
+  owner: domain-arch-core-commerce
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc003
+    name: Product order delivery orchestration and management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC003
+    oda_component_name: ProductOrderDeliveryOrchestrationAndManagement
+    functional_block: CoreCommerce
+- domain_id: tmfc005
+  name: TMFC005-ProductInventory
+  owner: domain-arch-core-commerce
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc005
+    name: Product inventory
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC005
+    oda_component_name: ProductInventory
+    functional_block: CoreCommerce
+- domain_id: tmfc006
+  name: TMFC006-ServiceCatalogManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc006
+    name: Service catalog management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC006
+    oda_component_name: ServiceCatalogManagement
+    functional_block: Production
+- domain_id: tmfc007
+  name: TMFC007-ServiceOrderManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc007
+    name: Service order management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC007
+    oda_component_name: ServiceOrderManagement
+    functional_block: Production
+- domain_id: tmfc008
+  name: TMFC008-ServiceInventory
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc008
+    name: Service inventory
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC008
+    oda_component_name: ServiceInventory
+    functional_block: Production
+- domain_id: tmfc009
+  name: TMFC009-ServiceQualificationManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc009
+    name: Service qualification management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC009
+    oda_component_name: ServiceQualificationManagement
+    functional_block: Production
+- domain_id: tmfc010
+  name: TMFC010-ResourceCatalogManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc010
+    name: Resource catalog management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC010
+    oda_component_name: ResourceCatalogManagement
+    functional_block: Production
+- domain_id: tmfc011
+  name: TMFC011-ResourceOrderManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc011
+    name: Resource order management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC011
+    oda_component_name: ResourceOrderManagement
+    functional_block: Production
+- domain_id: tmfc012
+  name: TMFC012-ResourceInventory
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc012
+    name: Resource inventory
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC012
+    oda_component_name: ResourceInventory
+    functional_block: Production
+- domain_id: tmfc014
+  name: TMFC014-LocationManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc014
+    name: Location management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC014
+    oda_component_name: LocationManagement
+    functional_block: Production
+- domain_id: tmfc020
+  name: TMFC020-DigitalIdentityManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc020
+    name: Digital identity management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC020
+    oda_component_name: DigitalIdentityManagement
+    functional_block: PartyManagement
+- domain_id: tmfc022
+  name: TMFC022-PartyPrivacyManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc022
+    name: Party privacy management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC022
+    oda_component_name: PartyPrivacyManagement
+    functional_block: PartyManagement
+- domain_id: tmfc023
+  name: TMFC023-PartyInteractionManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc023
+    name: Party interaction management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC023
+    oda_component_name: PartyInteractionManagement
+    functional_block: PartyManagement
+- domain_id: tmfc024
+  name: TMFC024-BillingAccountManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc024
+    name: Billing account management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC024
+    oda_component_name: BillingAccountManagement
+    functional_block: PartyManagement
+- domain_id: tmfc027
+  name: TMFC027-ProductConfigurator
+  owner: domain-arch-core-commerce
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc027
+    name: Product configurator
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC027
+    oda_component_name: ProductConfigurator
+    functional_block: CoreCommerce
+- domain_id: tmfc028
+  name: TMFC028-PartyManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc028
+    name: Party management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC028
+    oda_component_name: PartyManagement
+    functional_block: PartyManagement
+- domain_id: tmfc029
+  name: TMFC029-PaymentManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc029
+    name: Payment management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC029
+    oda_component_name: PaymentManagement
+    functional_block: PartyManagement
+- domain_id: tmfc030
+  name: TMFC030-BillGenerationManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc030
+    name: Bill generation management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC030
+    oda_component_name: BillGenerationManagement
+    functional_block: PartyManagement
+- domain_id: tmfc031
+  name: TMFC031-BillCalculation
+  owner: domain-arch-core-commerce
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc031
+    name: Bill calculation
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC031
+    oda_component_name: BillCalculation
+    functional_block: CoreCommerce
+- domain_id: tmfc035
+  name: TMFC035-PermissionsManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc035
+    name: Permissions management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC035
+    oda_component_name: PermissionsManagement
+    functional_block: PartyManagement
+- domain_id: tmfc036
+  name: TMFC036-LeadAndOpportunityManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc036
+    name: Lead and opportunity management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC036
+    oda_component_name: LeadAndOpportunityManagement
+    functional_block: PartyManagement
+- domain_id: tmfc037
+  name: TMFC037-ServicePerformanceManagement
+  owner: domain-arch-intelligence-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc037
+    name: Service performance management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC037
+    oda_component_name: ServicePerformanceManagement
+    functional_block: IntelligenceManagement
+- domain_id: tmfc038
+  name: TMFC038-ResourcePerformanceManagement
+  owner: domain-arch-intelligence-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc038
+    name: Resource performance management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC038
+    oda_component_name: ResourcePerformanceManagement
+    functional_block: IntelligenceManagement
+- domain_id: tmfc039
+  name: TMFC039-AgreementManagement
+  owner: domain-arch-party-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc039
+    name: Agreement management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC039
+    oda_component_name: AgreementManagement
+    functional_block: PartyManagement
+- domain_id: tmfc040
+  name: TMFC040-ProductUsageManagement
+  owner: domain-arch-core-commerce
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc040
+    name: Product usage management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC040
+    oda_component_name: ProductUsageManagement
+    functional_block: CoreCommerce
+- domain_id: tmfc041
+  name: TMFC041-AnomalyManagement
+  owner: domain-arch-intelligence-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc041
+    name: Anomaly management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC041
+    oda_component_name: AnomalyManagement
+    functional_block: IntelligenceManagement
+- domain_id: tmfc043
+  name: TMFC043-FaultManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc043
+    name: Fault management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC043
+    oda_component_name: FaultManagement
+    functional_block: Production
+- domain_id: tmfc046
+  name: TMFC046-WorkforceManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc046
+    name: Workforce management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC046
+    oda_component_name: WorkforceManagement
+    functional_block: Production
+- domain_id: tmfc050
+  name: TMFC050-ProductRecommendationManagement
+  owner: domain-arch-intelligence-management
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc050
+    name: Product recommendation management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC050
+    oda_component_name: ProductRecommendationManagement
+    functional_block: IntelligenceManagement
+- domain_id: tmfc054
+  name: TMFC054-ProductTestManagement
+  owner: domain-arch-core-commerce
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc054
+    name: Product test management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC054
+    oda_component_name: ProductTestManagement
+    functional_block: CoreCommerce
+- domain_id: tmfc055
+  name: TMFC055-ServiceTestManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc055
+    name: Service test management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC055
+    oda_component_name: ServiceTestManagement
+    functional_block: Production
+- domain_id: tmfc061
+  name: TMFC061-WorkOrderManagement
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc061
+    name: Work order management
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC061
+    oda_component_name: WorkOrderManagement
+    functional_block: Production
+- domain_id: tmfc062
+  name: TMFC062-ResourceConfigurationandActivation
+  owner: domain-arch-production
+  status: active
+  capabilities:
+  - capability_id: cap-tmfc062
+    name: Resource configuration and activation
+  standards:
+    frameworks:
+    - TM Forum ODA
+    - TM Forum eTOM
+    - TM Forum SID
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: TMFC062
+    oda_component_name: ResourceConfigurationandActivation
+    functional_block: Production
