@@ -2,6 +2,14 @@
 
 EA portfolio repo entrypoint. Routes initiatives to solution repos via the Git-first decomposition cascade.
 
+## Read First
+
+1. This file - enterprise context and navigation
+
+## Parent
+
+Not applicable
+
 ## Critical File Contract
 
 - Keep required section headings from this template.
@@ -10,7 +18,7 @@ EA portfolio repo entrypoint. Routes initiatives to solution repos via the Git-f
 - Put detailed/mutable operational values in canonical artifacts and link them here.
 - If a required section has no content, keep it and write `Not applicable`.
 
-## Expected Layout
+## Knowledge Store Layout
 
 ```text
 ENTERPRISE.md                             <- you are here
@@ -29,7 +37,7 @@ architecture/
     `-- governance.yml                    <- (optional)
 ```
 
-## Canonical Sources
+## Canonical Artifacts
 
 - `architecture/portfolio/initiative-pipeline.yml` (portfolio lifecycle source)
 - `architecture/portfolio/initiatives.yml` (runtime routing selector)
@@ -41,7 +49,7 @@ architecture/
 
 ## Routing
 
-`INITIATIVE_ID` -> `initiatives.yml` -> `solution_repo_url`
+`INITIATIVE_ID` -> `initiatives.yml` -> `solution_repo_url` + `solution_entrypoint`
 
 ## Policy
 

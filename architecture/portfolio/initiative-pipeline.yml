@@ -17,8 +17,8 @@ initiatives:
   roi_band: high
   solution_repo_url: https://github.com/<github-org>/<solution-repo>
   routing:
-    publish_to_selector: true
-    selector_status: active
+    publish_to_selector: false
+    selector_status: planned
   metadata:
     target_release: 2026-Q3
     review_board: enterprise-portfolio-board
