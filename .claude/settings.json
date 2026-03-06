@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api repos/tincanlab/solution-bopis/contents/SOLUTION.md --jq '.name, .download_url')",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}
