@@ -2,7 +2,6 @@ version: '1.0'
 initiatives:
 - initiative_id: init-bopis
   solution_repo_url: https://github.com/tincanlab/solution-bopis
-  solution_entrypoint: SOLUTION.md
   status: active
   name: Buy Online, Pick Up In Store
   owner: sa-team-commerce

@@ -14,10 +14,13 @@ capabilities:
     current_maturity: "initial"
     target_maturity: "managed"
     owning_domains:
-      - "domain-product"
+      - "tmfc001"
     tmf_alignment:
-      oda_block: "Product Catalog Management"
-      confidence: "local_knowledge"
+      oda_component_id: "TMFC001"
+      oda_component_name: "ProductCatalogManagement"
+      api_id: "TMF620"
+      api_title: "Product Catalog Management"
+      confidence: "mcp_verified"
 
     sub_capabilities:
       - id: "cap-l2-product-catalog"
@@ -27,7 +30,7 @@ capabilities:
         strategic_priority: "critical"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-product"
+        owning_domain: "tmfc001"
         key_applications: []
         gaps:
           - "TMF620 Product Catalog API not yet implemented"
@@ -39,7 +42,7 @@ capabilities:
         strategic_priority: "high"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-product"
+        owning_domain: "tmfc001"
         key_applications: []
         gaps:
           - "Offer catalog not yet defined"
@@ -51,7 +54,7 @@ capabilities:
         strategic_priority: "high"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-product"
+        owning_domain: "tmfc001"
         key_applications: []
         gaps:
           - "Pricing engine not yet implemented"
@@ -65,10 +68,14 @@ capabilities:
     current_maturity: "initial"
     target_maturity: "managed"
     owning_domains:
-      - "domain-order"
+      - "tmfc002"
+      - "tmfc003"
     tmf_alignment:
-      oda_block: "Order Management"
-      confidence: "local_knowledge"
+      oda_component_id: "TMFC002"
+      oda_component_name: "ProductOrderCaptureAndValidation"
+      api_id: "TMF622"
+      api_title: "Product Ordering"
+      confidence: "mcp_verified"
 
     sub_capabilities:
       - id: "cap-l2-order-creation"
@@ -78,10 +85,10 @@ capabilities:
         strategic_priority: "critical"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-order"
+        owning_domain: "tmfc002"
         key_applications: []
         gaps:
-          - "TMF629 Order Management API not yet implemented"
+          - "TMF622 Product Ordering API not yet implemented"
           - "Product catalog integration not yet established"
         investment_required: "M"
       - id: "cap-l2-order-fulfillment"
@@ -91,7 +98,7 @@ capabilities:
         strategic_priority: "critical"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-order"
+        owning_domain: "tmfc003"
         key_applications: []
         gaps:
           - "Fulfillment workflow not yet designed"
@@ -103,7 +110,7 @@ capabilities:
         strategic_priority: "medium"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-order"
+        owning_domain: "tmfc002"
         key_applications: []
         gaps:
           - "Status event framework not yet implemented"
@@ -117,10 +124,13 @@ capabilities:
     current_maturity: "initial"
     target_maturity: "managed"
     owning_domains:
-      - "domain-customer"
+      - "tmfc028"
     tmf_alignment:
-      oda_block: "Customer Party Management"
-      confidence: "local_knowledge"
+      oda_component_id: "TMFC028"
+      oda_component_name: "PartyManagement"
+      api_id: "TMF629"
+      api_title: "Customer Management"
+      confidence: "mcp_verified"
 
     sub_capabilities:
       - id: "cap-l2-customer-profile"
@@ -130,10 +140,10 @@ capabilities:
         strategic_priority: "high"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-customer"
+        owning_domain: "tmfc028"
         key_applications: []
         gaps:
-          - "TMF622 Customer Party Management API not yet implemented"
+          - "TMF629 Customer Management API not yet implemented"
         investment_required: "S"
       - id: "cap-l2-customer-accounts"
         name: "Customer Account Management"
@@ -142,7 +152,7 @@ capabilities:
         strategic_priority: "medium"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-customer"
+        owning_domain: "tmfc028"
         key_applications: []
         gaps:
           - "Account hierarchy not yet defined"
@@ -156,10 +166,13 @@ capabilities:
     current_maturity: "initial"
     target_maturity: "managed"
     owning_domains:
-      - "domain-billing"
+      - "tmfc030"
     tmf_alignment:
-      oda_block: "Billing and Accounts Receivable"
-      confidence: "local_knowledge"
+      oda_component_id: "TMFC030"
+      oda_component_name: "BillGenerationManagement"
+      api_id: "TMF678"
+      api_title: "Customer Bill"
+      confidence: "mcp_verified"
 
     sub_capabilities:
       - id: "cap-l2-billing-generation"
@@ -169,10 +182,10 @@ capabilities:
         strategic_priority: "high"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-billing"
+        owning_domain: "tmfc030"
         key_applications: []
         gaps:
-          - "TMF635 Billing API not yet implemented"
+          - "TMF678 Customer Bill API not yet implemented"
           - "Order event integration not yet established"
         investment_required: "M"
       - id: "cap-l2-invoicing"
@@ -182,7 +195,7 @@ capabilities:
         strategic_priority: "medium"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-billing"
+        owning_domain: "tmfc030"
         key_applications: []
         gaps:
           - "Invoicing workflow not yet implemented"
@@ -194,7 +207,7 @@ capabilities:
         strategic_priority: "medium"
         current_maturity: "initial"
         target_maturity: "managed"
-        owning_domain: "domain-billing"
+        owning_domain: "tmfc030"
         key_applications: []
         gaps:
           - "Payment gateway integration not yet established"
@@ -216,4 +229,4 @@ heatmap:
     cascade_layer: "enterprise_architecture"
     cascade_recommendation: "ready_for_review"
     remediation_status: "complete"
-    note: "Capability map baselined with 4 Level-1 capabilities (Product, Order, Customer, Billing) aligned to TMF ODA components. All capabilities at initial maturity targeting managed state. Investment priorities set with Product and Order as critical gaps."
+    note: "Capability map baselined with 4 Level-1 capabilities (Product, Order, Customer, Billing) aligned to TMF ODA components (TMFC001, TMFC002, TMFC003, TMFC028, TMFC030). All capabilities at initial maturity targeting managed state. Investment priorities set with Product and Order as critical gaps."
