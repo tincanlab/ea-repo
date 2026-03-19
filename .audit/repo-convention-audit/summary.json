@@ -1,0 +1,22 @@
+{
+  "repo_count": 1,
+  "repos_with_findings": 1,
+  "reports": [
+    {
+      "slug": "ea-repo-ad65256f",
+      "source": "C:/Projects/ea-repo",
+      "repo_root": "C:\\Projects\\ea-repo",
+      "profile": "enterprise",
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "missing_file",
+          "path": "VISION.md",
+          "message": "Recommended enterprise direction and guardrails.",
+          "template": "enterprise-architecture/references/VISION.md.template",
+          "staged_candidate": "staged/VISION.md"
+        }
+      ]
+    }
+  ]
+}
