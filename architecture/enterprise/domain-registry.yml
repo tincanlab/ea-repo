@@ -5,6 +5,8 @@ domains:
   name: TMFC001-ProductCatalogManagement
   owner: domain-arch-core-commerce
   status: active
+  domain_repo_url: https://github.com/tincanlab/domain-ecommerce
+  domain_entrypoint: DOMAIN.md
   capabilities:
   - capability_id: cap-tmfc001
     name: Product catalog management
@@ -45,6 +47,8 @@ domains:
   name: TMFC003-ProductOrderDeliveryOrchestrationAndManagement
   owner: domain-arch-core-commerce
   status: active
+  domain_repo_url: https://github.com/tincanlab/domain-order
+  domain_entrypoint: DOMAIN.md
   capabilities:
   - capability_id: cap-tmfc003
     name: Product order delivery orchestration and management
@@ -65,6 +69,8 @@ domains:
   name: TMFC005-ProductInventory
   owner: domain-arch-core-commerce
   status: active
+  domain_repo_url: https://github.com/tincanlab/domain-inventory
+  domain_entrypoint: DOMAIN.md
   capabilities:
   - capability_id: cap-tmfc005
     name: Product inventory
@@ -345,6 +351,8 @@ domains:
   name: TMFC028-PartyManagement
   owner: domain-arch-party-management
   status: active
+  domain_repo_url: https://github.com/tincanlab/domain-party-role
+  domain_entrypoint: DOMAIN.md
   capabilities:
   - capability_id: cap-tmfc028
     name: Party management
@@ -700,4 +708,24 @@ domains:
   metadata:
     tmfc_component_id: TMFC062
     oda_component_name: ResourceConfigurationandActivation
+    functional_block: Production
+- domain_id: notification
+  name: NotificationService
+  owner: domain-arch-production
+  status: active
+  domain_repo_url: https://github.com/tincanlab/domain-notification
+  domain_entrypoint: DOMAIN.md
+  capabilities:
+  - capability_id: cap-notification
+    name: Customer notification service
+  standards:
+    frameworks:
+    - Enterprise
+    policies: []
+  target_state:
+    principles: []
+    constraints: []
+  metadata:
+    tmfc_component_id: null
+    oda_component_name: NotificationService
     functional_block: Production
