@@ -1,4 +1,3 @@
-# Strategies
 ## Strategy 1
 Build the OpenArchitect Platform
 
