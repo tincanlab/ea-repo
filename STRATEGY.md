@@ -1,6 +1,6 @@
-#Strategies
-## Stratety 1
+# Strategies
+## Strategy 1
 Build the OpenArchitect Platform
 
-##Strategy 2
+## Strategy 2
 Create Opensource EA Marketplace
